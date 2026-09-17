@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Hair Valley — Design Tokens System
+   ========================================================================== */
+
+:root {
+  /* --- Palette Tokens --- */
+  --porcelain:    #FBF7F4; /* Primary background: warm white, not clinical */
+  --blush-veil:   #F3E1DA; /* Secondary panels, glass tint base */
+  --dusty-rose:   #C68A7F; /* Primary accent: CTAs, active states, price highlights */
+  --champagne:    #D8C39C; /* Secondary accent: dividers, badges, fine detailing */
+  --espresso:     #362621; /* Primary text, headline color: warm brown, no pure black */
+  --warm-ash:     #6B5C55; /* Secondary text, captions, metadata */
+
+  /* --- Glassmorphism Surfaces (Graduated by Density) --- */
+  /* Hero intro card (Heavy density, single focus) */
+  --glass-hero-bg:     rgba(255, 255, 255, 0.50);
+  --glass-hero-blur:   blur(16px) saturate(140%);
+  
+  /* Featured services grid (Medium density) */
+  --glass-featured-bg:   rgba(255, 255, 255, 0.55);
+  --glass-featured-blur: blur(12px) saturate(130%);
+
+  /* Promotions banner (Heavier blush tint) */
+  --glass-promo-bg:    rgba(243, 225, 218, 0.55);
+  --glass-promo-blur:  blur(14px) saturate(130%);
+
+  /* Services page cards (Light density, prevents visual fatigue on 20+ cards) */
+  --glass-card-bg:     rgba(255, 255, 255, 0.45);
+  --glass-card-blur:   blur(8px) saturate(120%);
+
+  /* Basin & Add-on tray chips (Lightest density) */
+  --glass-chip-bg:     rgba(255, 255, 255, 0.35);
+  --glass-chip-blur:   blur(6px);
+
+  /* Sticky header & Nav pills */
+  --glass-header-bg:   rgba(251, 247, 244, 0.82);
+  --glass-header-blur: blur(16px) saturate(140%);
+  --glass-pill-bg:     rgba(255, 255, 255, 0.45);
+  --glass-pill-active: rgba(198, 138, 127, 0.18);
+
+  /* Glass Borders & Shadow */
+  --glass-border:        1px solid rgba(255, 255, 255, 0.65);
+  --glass-border-warm:   1px solid rgba(198, 138, 127, 0.25);
+  --glass-border-grad:   linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(198, 138, 127, 0.25) 100%);
+  
+  /* Warm subtle shadows, never cold grey */
+  --glass-shadow:        0 8px 32px rgba(54, 38, 33, 0.08);
+  --glass-shadow-hover:  0 12px 36px rgba(54, 38, 33, 0.12);
+  --glass-shadow-sm:     0 4px 16px rgba(54, 38, 33, 0.05);
+
+  /* --- Typography Tokens --- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --line-height-body:  1.4;
+  --line-height-quote: 1.5;
+  --max-line-length:   70ch;
+
+  /* --- Layout & Spacing Scale --- */
+  --container-max: 1280px;
+  --container-pad: clamp(1.25rem, 4vw, 3.5rem);
+
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1.25rem;
+  --space-lg:  2rem;
+  --space-xl:  3.5rem;
+  --space-2xl: 5.5rem;
+  --space-3xl: 8rem;
+
+  /* --- Transitions --- */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* --- Radius --- */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   24px;
+  --radius-pill: 9999px;
+}

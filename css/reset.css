@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Hair Valley — Reset & Base Normalization
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--porcelain, #FBF7F4);
+  color: var(--espresso, #362621);
+  font-family: var(--font-body, 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1rem;
+  line-height: var(--line-height-body, 1.4);
+  overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-weight: normal;
+  line-height: 1.15;
+  color: var(--espresso, #362621);
+}
+
+::selection {
+  background: var(--blush-veil, #F3E1DA);
+  color: var(--espresso, #362621);
+}

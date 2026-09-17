@@ -1,0 +1,21 @@
+{
+  "name": "hairyvally",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "db:setup": "node scripts/setup-supabase.js",
+    "db:seed": "node scripts/setup-supabase.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
+    "dotenv": "^17.4.2",
+    "pg": "^8.23.0"
+  }
+}

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair Valley — Hurstville's Atelier for Hair</title>
+  <meta name="description" content="Hair that moves the way you actually live. Precision cutting, colour correction, and restorative treatments in Hurstville NSW.">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+  <!-- Sticky Editorial Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Hair Valley Home">
+        <span class="brand-name">Hair Valley</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link is-active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass">Book Appointment</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <a href="index.html" class="nav-link is-active">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass" style="width: 100%;">Book Appointment</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ====================================================================
+         Section 1.1: Hero Section (Cinematic Glassy Canvas with Swaying Hair)
+         ==================================================================== -->
+    <section class="hero-cinematic-stage" id="hero">
+      <div class="hero-canvas-viewport">
+        <!-- SVG Displacement Filter for Fluid Organic Hair Wave Motion -->
+        <svg class="hair-svg-filter" width="0" height="0" style="position: absolute;" aria-hidden="true">
+          <filter id="hairBreezeDisplacement" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence id="hairTurbulence" type="fractalNoise" baseFrequency="0.012 0.016" numOctaves="2" result="turbulence" />
+            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="14" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </svg>
+
+        <!-- Base Crisp Layer (Sharp, tranquil side profile & scene) -->
+        <div class="hero-layer-base">
+          <img src="images/hero-treatment.jpg" alt="Hair stylist with warm smile gently applying a restorative hair treatment to a relaxed client" class="hero-bg-img" width="1600" height="900" loading="eager">
+        </div>
+
+        <!-- Animated Hair Sway Layer (Masked so only the hair waves) -->
+        <div class="hero-layer-hair-motion" aria-hidden="true">
+          <img src="images/hero-treatment.jpg" alt="" class="hero-bg-img hair-motion-filtered" width="1600" height="900">
+        </div>
+
+        <!-- Glossy Specular Light Reflection across Hair Waves -->
+        <div class="hero-specular-gleam" aria-hidden="true"></div>
+
+        <!-- Direct-Canvas Magazine Typography & Floating Crystal Action Dock -->
+        <div class="container hero-content-overlay">
+          <div class="hero-direct-editorial">
+            <!-- Tagline Eyebrow -->
+            <div style="margin-bottom: 0.85rem;">
+              <span class="eyebrow" style="color: var(--champagne); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.82rem; font-weight: 500;">Nourish. Restore. Transform</span>
+            </div>
+
+            <!-- Direct Fraunces Editorial Headline -->
+            <h1 class="hero-direct-title">
+              Luxury Haircare,<br>
+              <span class="title-italic-accent">Curated for You.</span>
+            </h1>
+
+            <!-- Editorial Manifesto Quote with Champagne Line -->
+            <div class="hero-editorial-quote-bar">
+              <p class="hero-editorial-quote">
+                Discover Salon-Approved Brands for Exceptional Hair. Precision cutting, bespoke colour correction, and peptide molecular restoration.
+              </p>
+            </div>
+
+            <!-- Floating Crystal Action Dock -->
+            <div class="hero-crystal-dock" style="padding: 0.35rem 0.45rem;">
+              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="dock-btn-cta">
+                <span>Book Appointment</span>
+                <svg class="dock-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 10h12M11 5l5 5-5 5"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asymmetric Champagne Accent Divider Line -->
+    <div class="champagne-accent-divider" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         Section 1.2: Inside the Hurstville Atelier (Preserved Arch Portal)
+         ==================================================================== -->
+    <section class="section atelier-arch-section">
+      <div class="container">
+        <!-- Editorial Masthead Header -->
+        <!-- Editorial Masthead Header -->
+        <div class="hero-masthead">
+          <span class="eyebrow">WELCOME TO HAIR VALLEY</span>
+          <h2 class="display-section" style="margin-top: 0.35rem;">We’re more than just a salon — we’re a sanctuary for your hair and spirit.</h2>
+          <p class="body-text" style="max-width: 680px; margin-inline: auto; margin-top: 0.65rem; line-height: 1.6;">
+            For over 10 years, our talented team of passionate stylists from diverse backgrounds has been dedicated to creating not just beautiful hair, but a warm, welcoming experience for everyone who walks through our doors.
+          </p>
+        </div>
+
+        <!-- Arch Portal Stage (Flank Left + Arch Center + Flank Right) -->
+        <div class="hero-portal-stage">
+          <!-- Flanking Editorial Left Column -->
+          <div class="hero-flank-left">
+            <blockquote class="hero-manifesto-quote">
+              “We believe hair care is more than a service — it’s an experience of comfort, connection, and confidence.”
+            </blockquote>
+            <p class="body-sm" style="color: var(--warm-ash); line-height: 1.55;">
+              From routine maintenance to complete makeovers, we offer a full range of cutting, colouring, and treatment services.
+            </p>
+            <div class="glass-chip" style="width: fit-content;">
+              <span class="chip-title">Expanding Online Soon</span>
+            </div>
+          </div>
+
+          <!-- Center Architectural Arch Portal -->
+          <div class="hero-arch-wrapper">
+            <div class="hero-arch-portal">
+              <img src="images/hero.jpg" alt="Model with dimensional honey balayage hair turning in soft motion" width="896" height="1200" loading="lazy">
+            </div>
+
+            <!-- Floating Glass Booking Console (Docked across lower arch) -->
+            <div class="hero-glass-console">
+              <div class="console-info">
+                <span class="console-title" data-field="branch-name">Hair Valley Hurstville</span>
+                <span class="console-meta">Bespoke Consultations · Instant Online Confirmation</span>
+              </div>
+              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass" style="font-size: 0.88rem; padding: 0.65rem 1.45rem;">
+                Book Appointment
+              </a>
+            </div>
+          </div>
+
+          <!-- Flanking Values Right Column -->
+          <div class="hero-flank-right">
+            <div class="hero-stat-badge" style="text-align: left; padding: 1.25rem;">
+              <span class="body-text" style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--espresso); display: block;">Like Family</span>
+              <p class="caption" style="margin-top: 0.35rem; line-height: 1.5;">
+                We treat every guest like family, listening to your needs and delivering results that exceed expectations.
+              </p>
+            </div>
+
+            <div class="hero-stat-badge" style="margin-top: 0.75rem; text-align: left; padding: 1.25rem;">
+              <span class="body-text" style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--espresso); display: block;">Confidence & Care</span>
+              <p class="caption" style="margin-top: 0.35rem; line-height: 1.5;">
+                Our goal is for every client to leave feeling refreshed, rejuvenated, and full of confidence.
+              </p>
+            </div>
+
+            <div class="glass-chip" style="width: fit-content; margin-left: auto; margin-top: 0.5rem;">
+              <span class="chip-title">Opposite Station & Westfield</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asymmetric Champagne Divider Line -->
+    <div class="champagne-accent-divider" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         Section 1.3: Featured Services (Editorial Magazine Spread)
+         ==================================================================== -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="featured-heading-row">
+          <div>
+            <span class="eyebrow eyebrow--rose">Editorial selection</span>
+            <h2 class="display-section" style="margin-top: 0.35rem;">Formulated for hair integrity.</h2>
+          </div>
+          <a href="services.html" class="btn-glass featured-view-all-btn">View All Services</a>
+        </div>
+
+        <div class="editorial-featured-spread">
+          <!-- Hero-Sized Feature Card (Left ~59%) -->
+          <article class="glass-card--medium featured-hero-card">
+            <div class="card-img-thumb">
+              <img src="images/service-keratin.jpg" alt="Hands applying Brazilian Keratin treatment" width="640" height="440" loading="lazy">
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+              <span class="eyebrow eyebrow--rose">Salon Favourite</span>
+            </div>
+            <h3 class="heading-card" style="font-size: 1.65rem; margin-top: 0.35rem; margin-bottom: 0.65rem;">Brazilian Keratin</h3>
+            <p class="body-text" style="line-height: 1.55;">
+              Smooths cuticle porosity and rebuilds from the inside out with bio-active amino acids. Book online to reserve your tailored atelier treatment.
+            </p>
+            <div style="margin-top: auto; padding-top: 1.5rem;">
+              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass" style="font-size: 0.88rem; padding: 0.7rem 1.6rem;">
+                Book Appointment
+              </a>
+            </div>
+          </article>
+
+          <!-- Stacked Companions (Right ~41%) -->
+          <div class="featured-companions-stack">
+            <!-- Companion 1: Stylecut & Blowdry -->
+            <article class="companion-card">
+              <div class="companion-img-thumb">
+                <img src="images/service-blowdry.jpg" alt="Blowout styling with round brush" width="220" height="220" loading="lazy">
+              </div>
+              <div class="companion-content">
+                <span class="caption" style="color: var(--dusty-rose); font-weight: 500;">Precision & Shape</span>
+                <h3 class="heading-card" style="font-size: 1.2rem; margin-top: 0.25rem;">Stylecut & Blowdry</h3>
+                <p class="caption" style="line-height: 1.45; margin-top: 0.35rem;">
+                  Custom wet-cutting and tailored blow wave holding natural movement.
+                </p>
+                <a href="services.html#haircuts" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                  View service details <span>→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Companion 2: Root Touch (Regrowth) -->
+            <article class="companion-card">
+              <div class="companion-img-thumb">
+                <img src="images/services/color-regrowth-express.jpg" alt="Master stylist applying precision root touch tint to female client" width="220" height="220" loading="lazy">
+              </div>
+              <div class="companion-content">
+                <span class="caption" style="color: var(--dusty-rose); font-weight: 500;">Essential Colour</span>
+                <h3 class="heading-card" style="font-size: 1.2rem; margin-top: 0.25rem;">Root Touch (Regrowth)</h3>
+                <p class="caption" style="line-height: 1.45; margin-top: 0.35rem;">
+                  Seamless grey blending, bespoke colour balancing, and gloss toner refresh.
+                </p>
+                <a href="services.html#color" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                  View service details <span>→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Companion 3: Package 4 -->
+            <article class="companion-card">
+              <div class="companion-img-thumb">
+                <img src="images/service-balayage.jpg" alt="Balayage blonde ends" width="220" height="220" loading="lazy">
+              </div>
+              <div class="companion-content">
+                <span class="caption" style="color: var(--dusty-rose); font-weight: 500;">Complete Transformation</span>
+                <h3 class="heading-card" style="font-size: 1.2rem; margin-top: 0.25rem;">Package 4 — Balayage & Colour</h3>
+                <p class="caption" style="line-height: 1.45; margin-top: 0.35rem;">
+                  Balayage, tint, custom gloss toner, precision cut, blowdry, and treatment.
+                </p>
+                <a href="services.html#packages" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                  View service details <span>→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 1.3: Weekly Promotions Ribbon (Full-Bleed Diagonal-Clip Ribbon)
+         ==================================================================== -->
+    <section class="promo-ribbon-section">
+      <div class="promo-ribbon-inner">
+        <div>
+          <span class="promo-badge" style="position: static; margin-bottom: 0.65rem; display: inline-block;">Bespoke Experiences</span>
+          <br>
+          <span class="eyebrow eyebrow--rose">Curated Salon Rituals</span>
+          <h2 class="display-section" style="font-size: clamp(1.8rem, 2.8vw, 2.5rem); margin-top: 0.25rem;">
+            Midweek &amp; Weekend Care Rituals
+          </h2>
+
+          <div class="promo-tickets-grid">
+            <!-- Ticket 1: Smoothing & Craft -->
+            <div class="promo-ticket-card">
+              <div class="promo-ticket-header">
+                <span class="eyebrow" style="color: var(--espresso); font-weight: 500;">Signature Smoothing &amp; Cut</span>
+                <span class="caption" style="color: var(--dusty-rose); font-weight: 500;">Restorative Craft</span>
+              </div>
+              <div class="promo-ticket-body">
+                <div class="promo-item">
+                  <span class="body-text" style="font-weight: 500; color: var(--espresso);">Intensive Keratin Smoothing</span>
+                  <span class="caption">Cuticle porosity restoration with bio-active amino acids</span>
+                </div>
+                <div class="promo-item">
+                  <span class="body-text" style="font-weight: 500; color: var(--espresso);">Precision Cut &amp; Signature Blowout</span>
+                  <span class="caption">Bespoke wet-cutting and tailored sculpt holding natural bounce</span>
+                </div>
+                <div class="promo-item">
+                  <span class="body-text" style="font-weight: 500; color: var(--espresso);">Molecular Peptide Bond Therapy</span>
+                  <span class="caption">Deep structural resilience with K18 &amp; Olaplex</span>
+                </div>
+              </div>
+              <div style="margin-top: auto; padding-top: 0.5rem;">
+                <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass" style="font-size: 0.82rem; padding: 0.6rem 1.25rem; width: 100%;">
+                  Book Appointment
+                </a>
+              </div>
+            </div>
+
+            <!-- Ticket 2: Colour & Basin -->
+            <div class="promo-ticket-card">
+              <div class="promo-ticket-header">
+                <span class="eyebrow" style="color: var(--espresso); font-weight: 500;">Bespoke Colour &amp; Basin Care</span>
+                <span class="caption" style="color: var(--dusty-rose); font-weight: 500;">Sanctuary Ritual</span>
+              </div>
+              <div class="promo-ticket-body">
+                <span class="body-text" style="font-weight: 500; color: var(--espresso); font-size: 1.05rem;">Colour Harmony &amp; Scalp Ritual</span>
+                <span class="caption" style="line-height: 1.5; margin-top: 0.5rem;">
+                  Custom regrowth tint and tone balancing accompanied by our signature basin ritual: clarifying cleanse, deeply hydrating peptide mask, and gentle dry-off.
+                </span>
+                <span class="caption" style="color: var(--warm-ash); opacity: 0.9; font-size: 0.78rem; margin-top: 0.65rem; font-style: italic;">
+                  Every colour service includes an unhurried consultation to protect your hair's unique integrity and health.
+                </span>
+              </div>
+              <div style="margin-top: auto; padding-top: 0.5rem;">
+                <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass" style="font-size: 0.82rem; padding: 0.6rem 1.25rem; width: 100%;">
+                  Book Appointment
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-image-bleed">
+          <img src="images/promo-station.jpg" alt="Hair Valley styling station with luxury serums" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 1.4: Atmosphere (Overlapping Collage with Layered Depth)
+         ==================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="atmosphere-collage-wrap">
+          <div class="atmosphere-text-floater">
+            <span class="eyebrow">The Hair Valley Sanctuary</span>
+            <h2 class="display-section" style="margin-top: 0.35rem; margin-bottom: 1.25rem;">
+              Comfort, connection, and craft in every detail.
+            </h2>
+
+            <p class="body-lead" style="margin-bottom: 1rem;">
+              We believe haircare is more than just an appointment — it is an experience of comfort, personal connection, and renewed confidence. From the moment you step inside, our stylists take the time to truly listen to your hair aspirations, providing a warm, restorative haven away from the bustle of the everyday.
+            </p>
+
+            <p class="body-text">
+              Every technique is tailored to protect your hair’s natural structure and movement. By combining artisan precision with salon-approved restorative care, we ensure you leave looking radiant and feeling genuinely cared for.
+            </p>
+
+            <div style="margin-top: 1.75rem;">
+              <a href="about.html" class="eyebrow eyebrow--rose" style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem;">
+                Read our salon philosophy <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="collage-images-anchor">
+            <div class="collage-main-frame">
+              <img src="images/atmosphere.jpg" alt="Client reclined peacefully at the basin during a scalp massage ritual" loading="lazy">
+              <div class="floating-glass-tag">
+                Sanctuary · Restorative Care
+              </div>
+            </div>
+            <div class="collage-sub-frame">
+              <img src="images/ritual-wash.jpg" alt="Warm water basin wash" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Spanning Glass Stat Bar -->
+        <div class="atmosphere-stat-bar">
+          <div class="stat-item">
+            <span class="stat-dot"></span>
+            <span>Dedicated One-on-One Care</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-dot"></span>
+            <span>Salon-Approved Formulations</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-dot"></span>
+            <span>Tailored Hair Integrity</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-dot"></span>
+            <span>Warm, Welcoming Sanctuary</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 1.45: Google Reviews Showcase (Verified Client Words)
+         ==================================================================== -->
+    <section class="reviews-section" id="google-reviews">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto;">
+          <span class="eyebrow">Client Testimonials</span>
+          <h2 class="display-section" style="margin-top: 0.5rem;">
+            Real words. Verified Google reviews.
+          </h2>
+          <p class="body-sm" style="margin-top: 0.75rem; color: var(--warm-ash);">
+            Discover why clients trust Hair Valley for precision styling, dimensional color, and restorative hair care.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 1rem;">
+            <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," target="_blank" rel="noopener noreferrer" class="reviews-badge-dock" id="googleReviewsBadgeLink" title="View Hair Valley on Google Reviews">
+              <svg class="review-google-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+              </svg>
+              <div class="reviews-stars-gold">★★★★★</div>
+              <span style="font-weight: 600; color: var(--espresso); font-size: 0.95rem;">5.0 · Verified Google Reviews</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 0.25rem; color: var(--dusty-rose);" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="reviews-slider-wrap" style="margin-top: 2rem;">
+          <div class="reviews-slider-track" id="reviewsTrack">
+            <!-- Review 1: Darlene Taleno -->
+            <div class="review-card">
+              <div class="review-card-header">
+                <div class="review-author-info">
+                  <div class="review-avatar-wrap">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjWtEQTdHJF4owZuGeGrkdDwPmFmh0QuTp6U9fv0VH_lQIVFd3tU=s120-c-rp-mo-ba12-br100" alt="Darlene Taleno" class="review-avatar-img" onerror="this.style.display='none'; this.parentElement.textContent='DT';">
+                  </div>
+                  <div>
+                    <div class="review-author-name">Darlene Taleno</div>
+                    <div class="review-author-badge">Local Guide · 17 reviews</div>
+                  </div>
+                </div>
+                <svg class="review-google-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                </svg>
+              </div>
+              <div class="review-rating-bar">
+                <span class="reviews-stars-gold">★★★★★</span>
+              </div>
+              <p class="review-body-text">
+                “Hair Valley is truly unmatched in Hurstville! The salon has such a relaxing, luxury atmosphere and the attention to detail is exceptional. The consultation was thorough, the basin ritual was divine, and my cut and styling turned out even better than I envisioned. Highly recommend!”
+              </p>
+              <div class="review-card-footer">
+                <span class="review-date">Google Verified</span>
+                <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," target="_blank" rel="noopener noreferrer" class="btn-review-link">
+                  <span>View on Google</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Review 2: Natra H Ta’ala -->
+            <div class="review-card">
+              <div class="review-card-header">
+                <div class="review-author-info">
+                  <div class="review-avatar-wrap">NT</div>
+                  <div>
+                    <div class="review-author-name">Natra H Ta’ala</div>
+                    <div class="review-author-badge">Verified Client</div>
+                  </div>
+                </div>
+                <svg class="review-google-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                </svg>
+              </div>
+              <div class="review-rating-bar">
+                <span class="reviews-stars-gold">★★★★★</span>
+              </div>
+              <p class="review-body-text">
+                “Had a wonderful experience at Hair Valley. The stylists really take the time to understand your hair texture and what suits you best. The treatment made my hair feel so soft, healthy, and shiny without feeling heavy. I've already rebooked!”
+              </p>
+              <div class="review-card-footer">
+                <span class="review-date">Google Verified</span>
+                <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," target="_blank" rel="noopener noreferrer" class="btn-review-link">
+                  <span>View on Google</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Review 3: Sanishha Sanishahaha -->
+            <div class="review-card">
+              <div class="review-card-header">
+                <div class="review-author-info">
+                  <div class="review-avatar-wrap">SS</div>
+                  <div>
+                    <div class="review-author-name">Sanishha Sanishahaha</div>
+                    <div class="review-author-badge">Verified Client</div>
+                  </div>
+                </div>
+                <svg class="review-google-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                </svg>
+              </div>
+              <div class="review-rating-bar">
+                <span class="reviews-stars-gold">★★★★★</span>
+              </div>
+              <p class="review-body-text">
+                “Best salon in Hurstville by far! From the moment you walk in, the team makes you feel comfortable and pampered. My color turned out absolutely stunning and the blowdry lasted for days. Such talented and friendly professionals.”
+              </p>
+              <div class="review-card-footer">
+                <span class="review-date">Google Verified</span>
+                <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," target="_blank" rel="noopener noreferrer" class="btn-review-link">
+                  <span>View on Google</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Review 4: DIANA RAMIREZ LASPRILLA -->
+            <div class="review-card">
+              <div class="review-card-header">
+                <div class="review-author-info">
+                  <div class="review-avatar-wrap">DR</div>
+                  <div>
+                    <div class="review-author-name">DIANA RAMIREZ LASPRILLA</div>
+                    <div class="review-author-badge">Verified Client</div>
+                  </div>
+                </div>
+                <svg class="review-google-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                </svg>
+              </div>
+              <div class="review-rating-bar">
+                <span class="reviews-stars-gold">★★★★★</span>
+              </div>
+              <p class="review-body-text">
+                “Excellent service and extraordinary hair care! Cathy and the entire team are master craftswomen who know exactly how to manage frizzy hair and restore natural shine. You can tell they genuinely care about hair health. 10/10 recommendation!”
+              </p>
+              <div class="review-card-footer">
+                <span class="review-date">Google Verified</span>
+                <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," target="_blank" rel="noopener noreferrer" class="btn-review-link">
+                  <span>View on Google</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Review 5: Carmen Soriano -->
+            <div class="review-card">
+              <div class="review-card-header">
+                <div class="review-author-info">
+                  <div class="review-avatar-wrap">CS</div>
+                  <div>
+                    <div class="review-author-name">Carmen Soriano</div>
+                    <div class="review-author-badge">Verified Client</div>
+                  </div>
+                </div>
+                <svg class="review-google-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                </svg>
+              </div>
+              <div class="review-rating-bar">
+                <span class="reviews-stars-gold">★★★★★</span>
+              </div>
+              <p class="review-body-text">
+                “Always delighted with my visits to Hair Valley. Beautiful, calm salon environment, high-end products, and the staff are always so warm and attentive. My hair looks silky, healthy, and effortless every single time.”
+              </p>
+              <div class="review-card-footer">
+                <span class="review-date">Google Verified</span>
+                <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," target="_blank" rel="noopener noreferrer" class="btn-review-link">
+                  <span>View on Google</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Controls -->
+          <div class="reviews-nav-controls" style="display: flex; justify-content: center; align-items: center; margin-top: 1.75rem;">
+            <div id="reviewsNavButtons" style="display: flex; align-items: center; gap: 1.25rem;">
+              <button type="button" class="reviews-nav-btn" id="btnPrevReview" aria-label="Previous review" title="Previous review">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+              </button>
+              <span style="font-size: 0.85rem; color: var(--warm-ash); font-weight: 500; letter-spacing: 0.02em;">Swipe or click arrows</span>
+              <button type="button" class="reviews-nav-btn" id="btnNextReview" aria-label="Next review" title="Next review">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 1.5: Social Feed (Masonry Bento Grid)
+         ==================================================================== -->
+    <section class="section" style="padding-bottom: 0;">
+      <div class="container">
+        <div class="bento-lookbook-grid">
+          <!-- Bento Cell 1: Typographic Lead Card -->
+          <div class="bento-cell bento-cell--lead-text">
+            <div>
+              <span class="eyebrow">Visual lookbook</span>
+              <h2 class="display-section" style="font-size: clamp(1.4rem, 2.2vw, 1.85rem); margin-top: 0.35rem;">
+                Recent work & dimensional colour.
+              </h2>
+            </div>
+            <div>
+              <p class="body-sm" style="line-height: 1.45; margin-bottom: 1.25rem;">
+                Every cut, tone, and texture captured live in our Hurstville studio.
+              </p>
+              <a href="https://www.instagram.com/hairvalleyau?igsh=MWtodnJ1b2x3eTg3dA%3D%3D" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500; display: inline-flex; align-items: center; gap: 0.35rem;">
+                View Instagram @hairvalleyau <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bento Cell 2: Large Hero image (Spans 2 rows) -->
+          <div class="bento-cell bento-cell--span-2">
+            <img src="images/social-2.jpg" alt="Layered haircut and natural dimensional tones" loading="lazy">
+            <div class="bento-caption">
+              <span class="bento-service-title">Layered Stylecut & Waves</span>
+              <span class="caption">Cut & Style</span>
+            </div>
+          </div>
+
+          <!-- Bento Cell 3: Top Right -->
+          <div class="bento-cell">
+            <img src="images/social-1.jpg" alt="Nano Plasty smoothing texture close-up" loading="lazy">
+            <div class="bento-caption">
+              <span class="bento-service-title">Brazilian Keratin Smoothing</span>
+              <span class="caption">Restoration</span>
+            </div>
+          </div>
+
+          <!-- Bento Cell 4: Bottom Left -->
+          <div class="bento-cell">
+            <img src="images/social-4.jpg" alt="Balayage blonde ends" loading="lazy">
+            <div class="bento-caption">
+              <span class="bento-service-title">Dimensional Blonde Balayage</span>
+              <span class="caption">Blonding</span>
+            </div>
+          </div>
+
+          <!-- Bento Cell 5: Bottom Right -->
+          <div class="bento-cell">
+            <img src="images/social-5.jpg" alt="Polished blowout with natural movement" loading="lazy">
+            <div class="bento-caption">
+              <span class="bento-service-title">Signature Stylecut & Blowdry</span>
+              <span class="caption">Styling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       Section 1.6: Footer (Asymmetric Two-Column Signature)
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-main-grid">
+        <!-- Col 1: Editorial Brand, Newsletter & Social -->
+        <div class="footer-col-brand">
+          <div class="footer-brand-intro">
+            <h3 class="footer-brand-title">Hair Valley</h3>
+            <p class="footer-brand-tagline">Hurstville's atelier for hair health &amp; colour</p>
+          </div>
+
+          <div class="footer-brand-meta">
+            <div class="footer-social-chips">
+              <a href="https://www.instagram.com/hairvalleyau?igsh=MWtodnJ1b2x3eTg3dA%3D%3D" target="_blank" rel="noopener noreferrer" class="glass-social-chip" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="https://web.facebook.com/hairvalleyau?mibextid=wwXIfr&rdid=eIToeRM0HSunWwZI&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1HSjTPp475%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr#" target="_blank" rel="noopener noreferrer" class="glass-social-chip" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.667 5H18V0h-3.808C10.592 0 9 1.582 9 4.615V8z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@hairvalleyhurstville" target="_blank" rel="noopener noreferrer" class="glass-social-chip" aria-label="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.41a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.41a8.16 8.16 0 0 0 4.76 1.52v-3.24z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Salon Locations (Hurstville Flagship + Leppington Branch) -->
+        <div class="footer-card">
+          <!-- Branch 1: Hurstville Flagship -->
+          <div class="branch-section">
+            <div class="location-title">
+              <span data-field="branch-name">Hurstville Flagship</span>
+              <span class="location-badge">Flagship</span>
+            </div>
+            <div class="contact-detail-list">
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div data-field="branch-address">
+                  Shop 435, Level 3, Crn of Cross St &amp; Park Road<br>
+                  Westfield Hurstville NSW 2220<br>
+                  <a href="https://maps.google.com/?q=Westfield+Hurstville" target="_blank" rel="noopener noreferrer" class="btn-directions-link">
+                    <span>Open in Google Maps</span>
+                    <span>↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:0280846922" class="contact-link" data-field="branch-phone">02 8084 6922</a>
+              </div>
+
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:info@hairvalley.com.au" class="contact-link" data-field="branch-email">info@hairvalley.com.au</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="footer-branch-divider"></div>
+
+          <!-- Branch 2: Leppington Branch -->
+          <div class="branch-section">
+            <div class="location-title">
+              <span data-field="branch2-name">Leppington Branch</span>
+              <span class="location-badge" style="background: rgba(198, 138, 127, 0.12); color: var(--espresso);">By Appt Only</span>
+            </div>
+            <div class="contact-detail-list">
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span style="color: var(--espresso); font-weight: 500;" data-field="branch2-policy">By appointment only &amp; SMS confirmation</span>
+              </div>
+
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+                <div>
+                  <span style="font-size: 0.75rem; color: var(--warm-ash); display: block;">SMS Confirmation</span>
+                  <a href="sms:0402399917" class="contact-link" style="font-weight: 600;" data-field="branch2-sms">0402 399 917</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 3: Trading Hours Card -->
+        <div class="footer-hours-card">
+          <div class="location-title">
+            <span>Opening Hours</span>
+            <span class="location-badge" style="background: rgba(46, 125, 50, 0.12); color: #2e7d32;">
+              Trading Hours
+            </span>
+          </div>
+          <div class="hours-schedule-list">
+            <div class="hours-schedule-row">
+              <span class="hours-day">Mon – Wed</span>
+              <span class="hours-time">9:30 am – 6:00 pm</span>
+            </div>
+            <div class="hours-schedule-row">
+              <span class="hours-day">Thursday (Late Night)</span>
+              <span class="hours-time hours-time--highlight">9:30 am – 9:00 pm</span>
+            </div>
+            <div class="hours-schedule-row">
+              <span class="hours-day">Friday – Saturday</span>
+              <span class="hours-time">9:30 am – 6:00 pm</span>
+            </div>
+            <div class="hours-schedule-row">
+              <span class="hours-day">Sunday</span>
+              <span class="hours-time">10:00 am – 6:00 pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-Width Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copy">
+          <a href="admin.html" class="footer-copy-admin-link" aria-label="Admin login">©2026</a> All Rights Reserved—Designed By <a href="https://clickbit.com.au/" target="_blank" rel="noopener noreferrer" class="footer-designer-link">ClickBit</a>
+        </p>
+        <div class="footer-legal-links">
+          <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+          <span class="footer-legal-sep">·</span>
+          <a href="terms-conditions.html" class="footer-legal-link">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

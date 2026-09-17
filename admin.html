@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair Valley — Admin CMS</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- Admin Sidebar -->
+  <aside class="admin-sidebar" aria-label="CMS Navigation">
+    <div class="admin-brand">
+      <h1 class="admin-brand-title">Hair Valley</h1>
+      <div class="admin-brand-sub">Admin CMS</div>
+    </div>
+
+    <nav class="admin-nav" role="tablist">
+      <button class="admin-nav-item is-active" data-tab="services" role="tab" aria-selected="true">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+        <span class="admin-nav-text">Services & Pricing</span>
+      </button>
+
+      <button class="admin-nav-item" data-tab="hero" role="tab" aria-selected="false">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span class="admin-nav-text">Hero & Homepage</span>
+      </button>
+
+      <button class="admin-nav-item" data-tab="team" role="tab" aria-selected="false">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        <span class="admin-nav-text">Stylists & Rituals</span>
+      </button>
+
+      <button class="admin-nav-item" data-tab="contact" role="tab" aria-selected="false">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        <span class="admin-nav-text">Contact & Hours</span>
+      </button>
+
+      <button class="admin-nav-item" data-tab="reviews" role="tab" aria-selected="false">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+        </svg>
+        <span class="admin-nav-text">Google Reviews</span>
+      </button>
+
+      <button class="admin-nav-item" data-tab="media" role="tab" aria-selected="false">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+        </svg>
+        <span class="admin-nav-text">Media & Uploads</span>
+      </button>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <div id="supabaseStatusPill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(0,0,0,0.04); border-radius: 8px; margin-bottom: 0.5rem; font-size: 0.75rem;">
+        <span id="supabaseStatusDot" style="width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; display: inline-block;"></span>
+        <span id="supabaseStatusText" style="color: #64748b; font-weight: 500;">Supabase: Checking...</span>
+      </div>
+      <div id="adminUserSection" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; padding: 0.4rem 0.5rem; background: rgba(0,0,0,0.02); border-radius: 6px;">
+        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px;">
+          <span style="font-size: 0.68rem; color: var(--warm-ash); display: block; line-height: 1;">Logged in</span>
+          <strong id="adminUserEmail" style="font-size: 0.75rem; color: var(--espresso);"></strong>
+        </div>
+        <button id="btnAdminLogout" type="button" style="background: none; border: 1px solid var(--admin-border); border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.7rem; color: #b33939; cursor: pointer;">Sign Out</button>
+      </div>
+      <a href="index.html" target="_blank" class="btn-view-live">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+        <span>View Live Website</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content Container -->
+  <main class="admin-main">
+    
+    <!-- ====================================================================
+         TAB 1: SERVICES & PRICING (CRUD: CREATE, READ, UPDATE, DELETE)
+         ==================================================================== -->
+    <section id="tab-services" class="admin-tab-content is-active">
+      <header class="admin-header">
+        <div>
+          <h2 class="admin-page-title">Services & Pricing Catalog</h2>
+          <p class="admin-page-subtitle">Manage all salon offerings across 11 categories. Full Update and Delete controls.</p>
+        </div>
+        <div class="admin-header-actions">
+          <button class="btn-primary" id="btnAddNewService">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            <span>Add New Service</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Services Toolbar (Category Filter + Live Search) -->
+      <div class="services-toolbar">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <select id="filterCategory" class="filter-category-select js-hv-select" data-variant="pill">
+            <option value="all">All Categories</option>
+            <option value="haircuts">Haircuts</option>
+            <option value="blowwave">Blow Wave</option>
+            <option value="color">Color Permanent</option>
+            <option value="foils">Foils & Highlights</option>
+            <option value="keratin">Keratin Treatments</option>
+            <option value="treatment">Restorative Treatments</option>
+            <option value="extensions">Extensions</option>
+            <option value="packages">Signature Packages</option>
+            <option value="deals">Weekly Deals</option>
+            <option value="addons">Add-on Enhancements</option>
+          </select>
+          <span id="servicesCountBadge" style="font-size: 0.82rem; color: var(--warm-ash); font-weight: 500;">Showing services</span>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <input type="text" id="searchServicesInput" class="form-control search-services-input" placeholder="Search service name, price, tag...">
+        </div>
+      </div>
+
+      <!-- Services Grid (Rendered Dynamically with Edit & Delete on Every Item) -->
+      <div class="services-admin-grid" id="servicesGrid">
+        <!-- Injected by js/admin.js -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 2: HERO & ATELIER SECTIONS (UPDATE COPY & IMAGES)
+         ==================================================================== -->
+    <section id="tab-hero" class="admin-tab-content">
+      <header class="admin-header">
+        <div>
+          <h2 class="admin-page-title">Hero & Homepage Sections</h2>
+          <p class="admin-page-subtitle">Update hero text, quote, rates, and imagery for the high-fashion front page.</p>
+        </div>
+        <div class="admin-header-actions">
+          <button class="btn-primary" id="btnSaveHero">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Save & Update Hero</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Section Form Card -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 class="admin-card-title">1. Main Hero Canvas (Lying Hair Section)</h3>
+          <span style="font-size: 0.78rem; background: var(--blush-veil); padding: 0.25rem 0.75rem; border-radius: 9999px; font-weight: 600; color: var(--espresso);">Live Frontpage</span>
+        </div>
+
+        <form id="formHeroSection" class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="heroEyebrow">Eyebrow Location Tag</label>
+            <input type="text" id="heroEyebrow" class="form-control" value="Hurstville Salon · Sydney">
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="heroTitle">Main Editorial Headline</label>
+            <input type="text" id="heroTitle" class="form-control" value="Hair that moves the way you actually live.">
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="heroQuote">Philosophy Manifesto / Quote</label>
+            <textarea id="heroQuote" class="form-control">Precision cutting, bespoke colour correction, and peptide molecular restoration. Hair health isn't a step before the style — it is the style.</textarea>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="heroBackgroundImage">Hero Background Image Path / URL</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="heroBackgroundImage" class="form-control" value="images/hero-lying.jpg">
+              <label class="btn-secondary" style="white-space: nowrap; cursor: pointer; display: flex; align-items: center;">
+                Upload New
+                <input type="file" id="heroImageFileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+              </label>
+            </div>
+            <div class="image-preview-container" style="margin-top: 0.5rem;">
+              <div class="image-preview-box">
+                <img id="heroImagePreview" src="images/hero-lying.jpg" alt="Hero Preview">
+              </div>
+              <p style="font-size: 0.8rem; color: var(--warm-ash);">Recommended format: 16:9 Landscape, ~1920×1080, WebP or JPEG, max 3MB.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Arch Portal Form Card -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 class="admin-card-title">2. Architectural Arch Portal (Section 1.2)</h3>
+          <span style="font-size: 0.78rem; background: var(--blush-veil); padding: 0.25rem 0.75rem; border-radius: 9999px; font-weight: 600; color: var(--espresso);">Post-Hero Portal</span>
+        </div>
+
+        <form id="formAtelierSection" class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="atelierEyebrow">Portal Eyebrow</label>
+            <input type="text" id="atelierEyebrow" class="form-control" value="Signature Salon Craft">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="atelierTitle">Portal Title</label>
+            <input type="text" id="atelierTitle" class="form-control" value="Inside the Hurstville Salon.">
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="atelierSubtitle">Portal Subtitle</label>
+            <input type="text" id="atelierSubtitle" class="form-control" value="Where tailored sensory diagnosis meets peptide restoration. Step inside for a look.">
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="atelierQuote">Salon Manifesto Quote</label>
+            <textarea id="atelierQuote" class="form-control">Precision cutting, bespoke colour correction, and restorative peptide care formulated for hair integrity.</textarea>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="atelierArchImage">Arch Model Image Path / URL</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="atelierArchImage" class="form-control" value="images/hero.jpg">
+              <label class="btn-secondary" style="white-space: nowrap; cursor: pointer; display: flex; align-items: center;">
+                Upload New
+                <input type="file" id="atelierImageFileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+              </label>
+            </div>
+            <div class="image-preview-container" style="margin-top: 0.5rem;">
+              <div class="image-preview-box">
+                <img id="atelierImagePreview" src="images/hero.jpg" alt="Arch Portal Preview">
+              </div>
+              <p style="font-size: 0.8rem; color: var(--warm-ash);">Recommended format: 3:4 Vertical Arch, ~900×1200, WebP or JPEG, max 2MB.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 3: STYLISTS & RITUALS (CRUD: CREATE, READ, UPDATE, DELETE)
+         ==================================================================== -->
+    <section id="tab-team" class="admin-tab-content">
+      <header class="admin-header">
+        <div>
+          <h2 class="admin-page-title">Master Stylists & Salon Rituals</h2>
+          <p class="admin-page-subtitle">Manage salon specialists (Update & Delete) and edit signature 3-movement rituals.</p>
+        </div>
+        <div class="admin-header-actions">
+          <button class="btn-primary" id="btnAddNewStylist">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            <span>Add New Stylist</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Stylists Roster Grid -->
+      <div style="margin-bottom: 2.5rem;">
+        <h3 class="admin-card-title" style="margin-bottom: 1rem;">Master Stylists Roster</h3>
+        <div class="stylist-admin-grid" id="stylistsAdminGrid">
+          <!-- Injected by js/admin.js -->
+        </div>
+      </div>
+
+      <!-- About Rituals Section -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 class="admin-card-title">Signature 3-Movement Basin Rituals</h3>
+          <button class="btn-primary" id="btnSaveRituals">Save & Update Rituals</button>
+        </div>
+
+        <div id="ritualsContainer" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Injected by js/admin.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 4: CONTACT & HOURS (UPDATE LOCATION & OPERATING HOURS)
+         ==================================================================== -->
+    <section id="tab-contact" class="admin-tab-content">
+      <header class="admin-header">
+        <div>
+          <h2 class="admin-page-title">Salon Locations & Operating Hours</h2>
+          <p class="admin-page-subtitle" id="contactPageSubtitle">Update Hurstville salon details, Leppington appointments, and weekly schedule.</p>
+        </div>
+        <div class="admin-header-actions">
+          <button class="btn-primary" id="btnSaveContact">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Save & Update Contact</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title" id="contactHurstvilleHeading" style="margin-bottom: 1.5rem;">Hurstville Salon Location</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="contactHurstvilleName">Branch Name</label>
+            <input type="text" id="contactHurstvilleName" class="form-control" value="Hurstville Salon">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactHurstvillePhone">Telephone Number</label>
+            <input type="text" id="contactHurstvillePhone" class="form-control" value="02 8084 6922">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactHurstvilleEmail">Email Address</label>
+            <input type="email" id="contactHurstvilleEmail" class="form-control" value="info@hairvalley.com.au">
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="contactHurstvilleAddress">Street Address</label>
+            <input type="text" id="contactHurstvilleAddress" class="form-control" value="Shop 435, Level 3, Westfield Hurstville, Cnr Cross St & Park Rd, Hurstville NSW 2220">
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="contactHurstvilleLandmark">Landmark & Proximity Note</label>
+            <input type="text" id="contactHurstvilleLandmark" class="form-control" value="Level 3 Westfield Hurstville (Near Station)">
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title" style="margin-bottom: 1.5rem;">Leppington Branch (By Appointment)</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="contactLeppingtonName">Branch Name</label>
+            <input type="text" id="contactLeppingtonName" class="form-control" value="Leppington Branch">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactLeppingtonSms">SMS / Contact Number</label>
+            <input type="text" id="contactLeppingtonSms" class="form-control" value="0402 399 917">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactLeppingtonEmail">Email Address</label>
+            <input type="email" id="contactLeppingtonEmail" class="form-control" value="info@hairvalley.com.au">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactLeppingtonPolicy">Appointment Policy</label>
+            <input type="text" id="contactLeppingtonPolicy" class="form-control" value="By appointment only & SMS confirmation">
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title" style="margin-bottom: 1.5rem;">Operating Trading Hours</h3>
+        <div class="form-grid">
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="hoursStandard">Standard Trading Hours (Mon–Wed, Fri–Sat)</label>
+            <input type="text" id="hoursStandard" class="form-control" value="Mon – Wed & Fri – Sat: 9:30 am – 6:00 pm">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="hoursThursday">Thursday Late Night Hours</label>
+            <input type="text" id="hoursThursday" class="form-control" value="Thursday: 9:30 am – 9:00 pm (Late Night)">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="hoursSunday">Sunday Hours</label>
+            <input type="text" id="hoursSunday" class="form-control" value="Sunday: 10:00 am – 6:00 pm">
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title" style="margin-bottom: 0.5rem;">Online Booking Integration (Fresha)</h3>
+        <p style="font-size: 0.85rem; color: var(--warm-ash); margin-bottom: 1.25rem;">All "Book Appointment" buttons across the website automatically direct clients to this booking link.</p>
+        <div class="form-grid form-grid--full">
+          <div class="form-group">
+            <label class="form-label" for="bookingUrl">Fresha Booking URL</label>
+            <input type="url" id="bookingUrl" class="form-control" value="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bookingDeposit">Online Booking Deposit Policy Terms</label>
+            <input type="text" id="bookingDeposit" class="form-control" value="A$50 deposit secures online bookings. Refundable up to 24h prior.">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 5: MEDIA & LOCAL IMAGE UPLOADER (WITH SPECIFICATIONS)
+         ==================================================================== -->
+    <section id="tab-media" class="admin-tab-content">
+      <header class="admin-header">
+        <div>
+          <h2 class="admin-page-title">Media Library & Local Image Upload</h2>
+          <p class="admin-page-subtitle">Upload images directly from your computer with exact dimensions and format guidelines.</p>
+        </div>
+      </header>
+
+      <!-- Specifications Guide Table -->
+      <div class="admin-card">
+        <h3 class="admin-card-title" style="margin-bottom: 0.5rem;">Image Specifications Guide</h3>
+        <p style="font-size: 0.85rem; color: var(--warm-ash); margin-bottom: 1.25rem;">Defined formats for flawless visual clarity and optimal load performance across high-resolution displays.</p>
+        
+        <table class="image-specs-table">
+          <thead>
+            <tr>
+              <th>Placement Section</th>
+              <th>Recommended Ratio</th>
+              <th>Resolution (px)</th>
+              <th>Allowed Formats</th>
+              <th>Max Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hero Section</strong> (Lying Girl Background)</td>
+              <td>16:9 Landscape</td>
+              <td>1920 × 1080 px</td>
+              <td>.webp, .jpg, .png</td>
+              <td>3.0 MB</td>
+            </tr>
+            <tr>
+              <td><strong>Arch Portal</strong> & <strong>Stylists</strong></td>
+              <td>3:4 Portrait Arch</td>
+              <td>900 × 1200 px</td>
+              <td>.webp, .jpg, .png</td>
+              <td>2.0 MB</td>
+            </tr>
+            <tr>
+              <td><strong>Services Catalog Thumbnails</strong></td>
+              <td>1:1 Square or 16:11</td>
+              <td>800 × 800 px</td>
+              <td>.webp, .jpg, .png</td>
+              <td>1.5 MB</td>
+            </tr>
+            <tr>
+              <td><strong>Basin Rituals & Craft Gallery</strong></td>
+              <td>4:3 Landscape</td>
+              <td>1200 × 900 px</td>
+              <td>.webp, .jpg, .png</td>
+              <td>2.0 MB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Drag & Drop Upload Zone -->
+      <div class="admin-card">
+        <h3 class="admin-card-title" style="margin-bottom: 1rem;">Upload Image from Local Storage</h3>
+        <div class="image-upload-zone" id="mediaUploadZone">
+          <input type="file" id="mediaFileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+          <svg width="42" height="42" fill="none" viewBox="0 0 24 24" stroke="var(--dusty-rose)" style="margin-bottom: 0.75rem;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+          </svg>
+          <p style="font-weight: 600; color: var(--espresso); font-size: 1rem;">Click to browse or drag & drop image here</p>
+          <p style="font-size: 0.8rem; color: var(--warm-ash); margin-top: 0.25rem;">Supported formats: JPEG, JPG, PNG, WEBP (Up to 15MB)</p>
+        </div>
+      </div>
+
+      <!-- Uploaded Images Gallery -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 class="admin-card-title">Uploaded Media Files</h3>
+          <button class="btn-secondary" id="btnRefreshUploads">Refresh List</button>
+        </div>
+        <div id="mediaGalleryGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem;">
+          <!-- Populated by js/admin.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 6: GOOGLE REVIEWS SHOWCASE
+         ==================================================================== -->
+    <section id="tab-reviews" class="admin-tab-content">
+      <header class="admin-header">
+        <div>
+          <h2 class="admin-page-title">Verified Google Reviews</h2>
+          <p class="admin-page-subtitle">Manage client testimonials displayed on the homepage showcase. Synced directly with Google Maps.</p>
+        </div>
+        <div class="admin-header-actions" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="button" class="btn-primary" id="btnSyncGoogleReviews" style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1rem; font-size: 0.85rem; cursor: pointer;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            <span>Sync Live Google Reviews</span>
+          </button>
+          <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," target="_blank" rel="noopener noreferrer" class="btn-secondary" id="adminGoogleReviewsLink" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            <span>Open Google Reviews ↗</span>
+          </a>
+          <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,3,,,," target="_blank" rel="noopener noreferrer" class="btn-secondary" id="adminGoogleWriteReviewLink" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            <span>Write Review Link ↗</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div>
+            <h3 class="admin-card-title">Active Reviews (<span id="adminReviewsCount">5</span>)</h3>
+            <p style="font-size: 0.8rem; color: var(--warm-ash); margin-top: 0.2rem;">Click "Edit" on any review to update its content, reviewer title, or link.</p>
+          </div>
+        </div>
+        <div id="adminReviewsList" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+          <!-- Populated by js/admin.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       MODAL 1: EDIT SERVICE (UPDATE)
+       ==================================================================== -->
+  <div class="admin-modal-backdrop" id="modalEditService">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Edit Service (Update)</h3>
+        <button class="admin-modal-close" onclick="closeModal('modalEditService')">&times;</button>
+      </div>
+      <form id="formEditService">
+        <div class="admin-modal-body">
+          <input type="hidden" id="editServiceId">
+
+          <div class="form-group">
+            <label class="form-label" for="editServiceName">Service Name *</label>
+            <input type="text" id="editServiceName" class="form-control" required>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="editServiceCategory">Category</label>
+              <select id="editServiceCategory" class="form-control js-hv-select">
+                <option value="">— No category —</option>
+                <option value="haircuts">Haircuts</option>
+                <option value="blowwave">Blow Wave</option>
+                <option value="color">Color Permanent</option>
+                <option value="foils">Foils & Highlights</option>
+                <option value="keratin">Keratin Treatments</option>
+                <option value="treatment">Restorative Treatments</option>
+                <option value="extensions">Extensions</option>
+                <option value="packages">Signature Packages</option>
+                <option value="deals">Weekly Deals</option>
+                <option value="addons">Add-on Enhancements</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editServiceDuration">Duration</label>
+              <input type="text" id="editServiceDuration" class="form-control" placeholder="e.g. 45 mins">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="editServicePrice">Current Price</label>
+              <input type="text" id="editServicePrice" class="form-control" placeholder="e.g. from A$40.50">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editServiceOriginalPrice">Original Price (Optional)</label>
+              <input type="text" id="editServiceOriginalPrice" class="form-control" placeholder="e.g. A$45.00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editServiceSavings">Savings Tag / Badge (Optional)</label>
+            <input type="text" id="editServiceSavings" class="form-control" placeholder="e.g. · Save up to 10%">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editServiceDesc">Description *</label>
+            <textarea id="editServiceDesc" class="form-control" rows="3" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editServiceImage">Image Path / URL</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="editServiceImage" class="form-control" placeholder="images/services/cut.jpg">
+              <label class="btn-secondary" style="white-space: nowrap; cursor: pointer; display: flex; align-items: center;">
+                Upload Local
+                <input type="file" id="editServiceFileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalEditService')">Cancel</button>
+          <button type="submit" class="btn-primary">Update Service</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 2: ADD NEW SERVICE (CREATE)
+       ==================================================================== -->
+  <div class="admin-modal-backdrop" id="modalAddService">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Add New Service</h3>
+        <button class="admin-modal-close" onclick="closeModal('modalAddService')">&times;</button>
+      </div>
+      <form id="formAddService">
+        <div class="admin-modal-body">
+          <div class="form-group">
+            <label class="form-label" for="addServiceName">Service Name *</label>
+            <input type="text" id="addServiceName" class="form-control" placeholder="e.g. Precision Fringe Trim" required>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="addServiceCategory">Category</label>
+              <select id="addServiceCategory" class="form-control js-hv-select">
+                <option value="">— No category —</option>
+                <option value="haircuts">Haircuts</option>
+                <option value="blowwave">Blow Wave</option>
+                <option value="color">Color Permanent</option>
+                <option value="foils">Foils & Highlights</option>
+                <option value="keratin">Keratin Treatments</option>
+                <option value="treatment">Restorative Treatments</option>
+                <option value="extensions">Extensions</option>
+                <option value="packages">Signature Packages</option>
+                <option value="deals">Weekly Deals</option>
+                <option value="addons">Add-on Enhancements</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="addServiceDuration">Duration</label>
+              <input type="text" id="addServiceDuration" class="form-control" placeholder="e.g. 30 mins">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="addServicePrice">Price</label>
+              <input type="text" id="addServicePrice" class="form-control" placeholder="e.g. A$35.00">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="addServiceOriginalPrice">Original Price (Optional)</label>
+              <input type="text" id="addServiceOriginalPrice" class="form-control" placeholder="e.g. A$40.00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="addServiceSavings">Savings Tag / Badge (Optional)</label>
+            <input type="text" id="addServiceSavings" class="form-control" placeholder="e.g. Save 15%">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="addServiceDesc">Description *</label>
+            <textarea id="addServiceDesc" class="form-control" rows="3" placeholder="Description of technique and results..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="addServiceImage">Image Path / URL</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="addServiceImage" class="form-control" value="images/services/cut-ladies.jpg">
+              <label class="btn-secondary" style="white-space: nowrap; cursor: pointer; display: flex; align-items: center;">
+                Upload Local
+                <input type="file" id="addServiceFileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalAddService')">Cancel</button>
+          <button type="submit" class="btn-primary">Create Service</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 3: EDIT STYLIST (UPDATE)
+       ==================================================================== -->
+  <div class="admin-modal-backdrop" id="modalEditStylist">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Edit Stylist (Update)</h3>
+        <button class="admin-modal-close" onclick="closeModal('modalEditStylist')">&times;</button>
+      </div>
+      <form id="formEditStylist">
+        <div class="admin-modal-body">
+          <input type="hidden" id="editStylistId">
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="editStylistName">Full Name *</label>
+              <input type="text" id="editStylistName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editStylistTag">Badge Tag *</label>
+              <input type="text" id="editStylistTag" class="form-control" placeholder="e.g. Lead Color Master" required>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="editStylistRole">Role / Title *</label>
+              <input type="text" id="editStylistRole" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editStylistCraftYears">Craft Experience *</label>
+              <input type="text" id="editStylistCraftYears" class="form-control" placeholder="e.g. 12+ Years Craft" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editStylistBio">Stylist Bio & Philosophy *</label>
+            <textarea id="editStylistBio" class="form-control" rows="3" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editStylistImage">Photo Path / URL</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="editStylistImage" class="form-control" required>
+              <label class="btn-secondary" style="white-space: nowrap; cursor: pointer; display: flex; align-items: center;">
+                Upload Local
+                <input type="file" id="editStylistFileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalEditStylist')">Cancel</button>
+          <button type="submit" class="btn-primary">Update Stylist</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 4: ADD NEW STYLIST (CREATE)
+       ==================================================================== -->
+  <div class="admin-modal-backdrop" id="modalAddStylist">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Add New Stylist</h3>
+        <button class="admin-modal-close" onclick="closeModal('modalAddStylist')">&times;</button>
+      </div>
+      <form id="formAddStylist">
+        <div class="admin-modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="addStylistName">Full Name *</label>
+              <input type="text" id="addStylistName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="addStylistTag">Badge Tag *</label>
+              <input type="text" id="addStylistTag" class="form-control" placeholder="e.g. Precision Cutter" required>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="addStylistRole">Role / Title *</label>
+              <input type="text" id="addStylistRole" class="form-control" placeholder="e.g. Senior Creative Stylist" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="addStylistCraftYears">Craft Experience *</label>
+              <input type="text" id="addStylistCraftYears" class="form-control" placeholder="e.g. 7+ Years Craft" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="addStylistBio">Stylist Bio & Philosophy *</label>
+            <textarea id="addStylistBio" class="form-control" rows="3" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="addStylistImage">Photo Path / URL</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="addStylistImage" class="form-control" value="images/stylist-1.jpg" required>
+              <label class="btn-secondary" style="white-space: nowrap; cursor: pointer; display: flex; align-items: center;">
+                Upload Local
+                <input type="file" id="addStylistFileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalAddStylist')">Cancel</button>
+          <button type="submit" class="btn-primary">Add Stylist</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 5: DELETE CONFIRMATION MODAL (DELETE)
+       ==================================================================== -->
+  <div class="admin-modal-backdrop" id="modalDeleteConfirm">
+    <div class="admin-modal" style="max-width: 480px;">
+      <div class="admin-modal-header" style="border-bottom-color: rgba(179, 57, 57, 0.2);">
+        <h3 class="admin-modal-title" style="color: #b33939; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+          Confirm Deletion
+        </h3>
+        <button class="admin-modal-close" onclick="closeModal('modalDeleteConfirm')">&times;</button>
+      </div>
+      <div class="admin-modal-body">
+        <p style="font-size: 0.95rem; color: var(--espresso); line-height: 1.5;">
+          Are you sure you want to delete <strong id="deleteItemTitle" style="color: #b33939;"></strong>?
+        </p>
+        <p style="font-size: 0.82rem; color: var(--warm-ash);">
+          This item will be permanently removed from the salon menu and live catalog.
+        </p>
+      </div>
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-secondary" onclick="closeModal('modalDeleteConfirm')">Cancel</button>
+        <button type="button" class="btn-danger" id="btnConfirmDeleteAction" style="padding: 0.65rem 1.4rem; font-size: 0.9rem;">Yes, Permanently Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL: EDIT GOOGLE REVIEW
+       ==================================================================== -->
+  <div class="admin-modal-backdrop" id="modalEditReview">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Edit Google Review</h3>
+        <button class="admin-modal-close" onclick="closeModal('modalEditReview')">&times;</button>
+      </div>
+      <form id="formEditReview">
+        <div class="admin-modal-body">
+          <input type="hidden" id="editReviewId">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="editReviewAuthor">Reviewer Name *</label>
+              <input type="text" id="editReviewAuthor" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="editReviewBadge">Badge / Label</label>
+              <input type="text" id="editReviewBadge" class="form-control" placeholder="e.g. Local Guide · 17 reviews">
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="editReviewRating">Rating (Stars) *</label>
+              <select id="editReviewRating" class="form-control" required>
+                <option value="5">5 Stars (★★★★★)</option>
+                <option value="4">4 Stars (★★★★☆)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="editReviewDate">Verification Date Label</label>
+              <input type="text" id="editReviewDate" class="form-control" placeholder="e.g. Google Verified">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="editReviewLink">Google Maps Direct Review Link *</label>
+            <input type="url" id="editReviewLink" class="form-control" placeholder="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," required>
+            <p style="font-size: 0.75rem; color: var(--warm-ash); margin-top: 0.25rem;">Direct Google review modal link or Google Maps location link.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="editReviewText">Review Text Content *</label>
+            <textarea id="editReviewText" class="form-control" rows="4" required></textarea>
+          </div>
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal('modalEditReview')">Cancel</button>
+          <button type="submit" class="btn-primary">Save Review Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ====================================================================
+       AUTHENTICATION GATE MODAL (Log In & Forgot Password)
+       ==================================================================== -->
+  <style>
+    .password-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .password-input-wrap .form-control {
+      padding-right: 2.85rem !important;
+      width: 100%;
+    }
+    .btn-pwd-toggle {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: 0.35rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #948b84;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: color 0.15s ease, background 0.15s ease;
+      line-height: 0;
+    }
+    .btn-pwd-toggle:hover {
+      color: var(--espresso);
+      background: rgba(0, 0, 0, 0.05);
+    }
+    .btn-pwd-toggle svg {
+      pointer-events: none;
+    }
+  </style>
+
+  <div id="adminAuthGate" style="position: fixed; inset: 0; background: rgba(28, 25, 23, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: none; align-items: center; justify-content: center; z-index: 99999; padding: 1.5rem;">
+    <div style="background: #ffffff; border-radius: 18px; width: 100%; max-width: 440px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.25); overflow: hidden;">
+      
+      <!-- Modal Header & Branding -->
+      <div style="padding: 2.25rem 2rem 1.25rem; text-align: center; border-bottom: 1px solid var(--admin-border); background: linear-gradient(180deg, #fdfbf7 0%, #ffffff 100%);">
+        <h2 id="authModalTitle" style="font-family: var(--font-display); font-size: 1.5rem; color: var(--espresso); margin-bottom: 0.25rem;">Hair Valley</h2>
+        <p id="authModalSubtitle" style="font-size: 0.82rem; color: var(--warm-ash);">Management Console & Cloud Database</p>
+      </div>
+
+      <!-- Feedback Area -->
+      <div id="authFeedbackMessage" style="padding: 0.75rem 1.5rem 0; font-size: 0.82rem; text-align: center; line-height: 1.4;"></div>
+
+      <div style="padding: 1.5rem 2rem 2rem;">
+        
+        <!-- 1. FORM: LOG IN -->
+        <form id="formAuthLogin">
+          <div class="form-group" style="margin-bottom: 1.15rem;">
+            <label class="form-label" for="loginEmail">Email Address</label>
+            <input type="email" id="loginEmail" class="form-control" required placeholder="admin@hairvalley.com.au">
+          </div>
+          <div class="form-group" style="margin-bottom: 0.35rem;">
+            <label class="form-label" for="loginPassword">Password</label>
+            <div class="password-input-wrap">
+              <input type="password" id="loginPassword" class="form-control" required placeholder="••••••••" minlength="6">
+              <button type="button" class="btn-pwd-toggle" data-target="loginPassword" title="Show or hide password" aria-label="Show or hide password">
+                <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+              </button>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1.35rem; margin-top: 0.35rem;">
+            <button type="button" id="btnShowForgotPassword" style="background: none; border: none; font-size: 0.8rem; color: var(--dusty-rose); font-weight: 500; cursor: pointer; padding: 0;">
+              Forgot password?
+            </button>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 0.95rem;">
+            Log In to CMS
+          </button>
+        </form>
+
+        <!-- 2. FORM: FORGOT PASSWORD -->
+        <form id="formAuthForgot" style="display: none;">
+          <p style="font-size: 0.85rem; color: var(--warm-ash); line-height: 1.5; margin-bottom: 1.25rem;">
+            Enter your admin email address. We will send a secure password recovery link to your inbox.
+          </p>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label" for="forgotEmail">Admin Email</label>
+            <input type="email" id="forgotEmail" class="form-control" required placeholder="admin@hairvalley.com.au">
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 0.95rem; margin-bottom: 0.85rem;">
+            Send Password Reset Link
+          </button>
+          <button type="button" id="btnBackToLoginFromForgot" style="width: 100%; background: none; border: 1px solid var(--admin-border); border-radius: 8px; padding: 0.65rem; font-size: 0.85rem; color: var(--espresso); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+            <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+            <span>Back to Log In</span>
+          </button>
+        </form>
+
+        <!-- 4. FORM: SET NEW PASSWORD (RECOVERY) -->
+        <form id="formAuthNewPassword" style="display: none;">
+          <p style="font-size: 0.85rem; color: var(--warm-ash); line-height: 1.5; margin-bottom: 1.25rem;">
+            Create a new secure password for your admin account.
+          </p>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="newPassword">New Password</label>
+            <div class="password-input-wrap">
+              <input type="password" id="newPassword" class="form-control" required placeholder="At least 6 characters" minlength="6">
+              <button type="button" class="btn-pwd-toggle" data-target="newPassword" title="Show or hide password" aria-label="Show or hide password">
+                <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+              </button>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label" for="confirmNewPassword">Confirm New Password</label>
+            <div class="password-input-wrap">
+              <input type="password" id="confirmNewPassword" class="form-control" required placeholder="Repeat new password" minlength="6">
+              <button type="button" class="btn-pwd-toggle" data-target="confirmNewPassword" title="Show or hide password" aria-label="Show or hide password">
+                <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 0.95rem; margin-bottom: 0.85rem;">
+            Update Password & Log In
+          </button>
+          <button type="button" id="btnCancelRecovery" style="width: 100%; background: none; border: 1px solid var(--admin-border); border-radius: 8px; padding: 0.65rem; font-size: 0.85rem; color: var(--espresso); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+            <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+            <span>Cancel & Back to Log In</span>
+          </button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/admin-auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

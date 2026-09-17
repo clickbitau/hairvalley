@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Hair Valley Atelier Hurstville</title>
+  <meta name="description" content="Reach out to Hair Valley Hurstville for fresh cuts, colour transformations, hair treatments, or expert advice. Let's create your perfect look.">
+  
+  <!-- Preload Critical Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS Design System Architecture -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <style>
+    .contact-page-stage {
+      padding-top: clamp(6.5rem, 10vw, 8.5rem);
+      padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+      min-height: 80vh;
+      position: relative;
+    }
+
+    .contact-split-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(1.75rem, 3.5vw, 3rem);
+      margin-top: clamp(1.75rem, 3vw, 2.5rem);
+      align-items: start;
+    }
+
+    @media (min-width: 960px) {
+      .contact-split-grid {
+        grid-template-columns: 1.12fr 0.88fr;
+      }
+    }
+
+    .contact-glass-card {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.92);
+      border-radius: var(--radius-lg, 16px);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      box-shadow: var(--glass-shadow-sm);
+    }
+
+    .contact-form-group {
+      margin-bottom: 1.15rem;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: 0.4rem;
+      font-family: var(--font-body);
+    }
+
+    .contact-input,
+    .contact-textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(198, 138, 127, 0.35);
+      border-radius: var(--radius-md, 8px);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--espresso);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+      box-sizing: border-box;
+    }
+
+    .contact-input:focus,
+    .contact-textarea:focus {
+      outline: none;
+      border-color: var(--dusty-rose);
+      box-shadow: 0 0 0 3px rgba(198, 138, 127, 0.2);
+      background: #ffffff;
+    }
+
+    .info-card-item {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      margin-bottom: 1.1rem;
+    }
+
+    .info-card-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(198, 138, 127, 0.12);
+      border: 1px solid rgba(198, 138, 127, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dusty-rose);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Hair Valley Home">
+        <span class="brand-name">Hair Valley</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link is-active">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass">Book Appointment</a>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="contact.html" class="nav-link is-active">Contact</a>
+    <div style="margin-top: 1rem;">
+      <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass" style="width: 100%;">Book Appointment</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="contact-page-stage">
+      <div class="container">
+        <div style="max-width: 680px;">
+          <span class="eyebrow">Contact Page</span>
+          <h1 class="display-section" style="margin-top: 0.45rem; font-size: clamp(2rem, 3.8vw, 3rem);">
+            We’d love to hear from you.
+          </h1>
+          <p class="body-text" style="margin-top: 0.85rem; line-height: 1.6; color: var(--espresso);">
+            Whether you're looking for a fresh cut, colour transformation, hair treatment, or expert advice, we’d love to hear from you. Reach out today and let’s create your perfect look.
+          </p>
+        </div>
+
+        <div class="contact-split-grid">
+          <!-- Left Column: Contact Form -->
+          <div class="contact-glass-card">
+            <form id="contactInquiryForm">
+              <div class="contact-form-group">
+                <label for="contactName" class="contact-label">Name</label>
+                <input type="text" id="contactName" name="name" class="contact-input" placeholder="Your full name" required>
+              </div>
+
+              <div class="contact-form-group">
+                <label for="contactEmail" class="contact-label">Email *</label>
+                <input type="email" id="contactEmail" name="email" class="contact-input" placeholder="you@example.com" required>
+              </div>
+
+              <div class="contact-form-group">
+                <label for="contactPhone" class="contact-label">Phone</label>
+                <input type="tel" id="contactPhone" name="phone" class="contact-input" placeholder="0400 000 000">
+              </div>
+
+              <div class="contact-form-group">
+                <label for="contactMessage" class="contact-label">Message</label>
+                <textarea id="contactMessage" name="message" class="contact-textarea" rows="4" placeholder="How can our stylists help you?" required></textarea>
+              </div>
+
+              <button type="submit" id="btnSubmitContact" class="dock-btn-cta" style="width: 100%; justify-content: center; padding: 0.95rem; font-size: 0.95rem; cursor: pointer; border: none;">
+                <span>Submit</span>
+                <svg class="dock-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 10h12M11 5l5 5-5 5"/>
+                </svg>
+              </button>
+
+              <div id="contactFormStatus" style="display: none; margin-top: 1rem; padding: 0.85rem; border-radius: var(--radius-md); font-size: 0.9rem; text-align: center;"></div>
+            </form>
+          </div>
+
+          <!-- Right Column: Salon Information & Hours -->
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Branch 1: Hurstville Flagship -->
+            <div class="contact-glass-card">
+              <div class="location-title" style="margin-bottom: 1.25rem;">
+                <span class="heading-card" style="font-size: 1.25rem;" data-field="branch-name">Hurstville Flagship</span>
+                <span class="location-badge">Flagship</span>
+              </div>
+              
+              <div class="info-card-item">
+                <div class="info-icon-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <strong style="color: var(--espresso); font-size: 0.95rem; display: block;">Address</strong>
+                  <p class="body-sm" style="margin-top: 0.2rem; color: var(--warm-ash);" data-field="branch-address">
+                    Shop 435, Level 3, Crn of Cross St &amp; Park Road<br>
+                    Westfield Hurstville NSW 2220<br>
+                    <a href="https://maps.google.com/?q=Westfield+Hurstville" target="_blank" rel="noopener noreferrer" class="btn-directions-link">
+                      <span>Open in Google Maps</span>
+                      <span>↗</span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card-item">
+                <div class="info-icon-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <strong style="color: var(--espresso); font-size: 0.95rem; display: block;">Telephone</strong>
+                  <a href="tel:0280846922" class="body-sm" style="margin-top: 0.2rem; color: var(--dusty-rose); font-weight: 500; text-decoration: none; display: block;" data-field="branch-phone">
+                    02 8084 6922
+                  </a>
+                </div>
+              </div>
+
+              <div class="info-card-item">
+                <div class="info-icon-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <strong style="color: var(--espresso); font-size: 0.95rem; display: block;">Email</strong>
+                  <a href="mailto:info@hairvalley.com.au" class="body-sm" style="margin-top: 0.2rem; color: var(--dusty-rose); font-weight: 500; text-decoration: none; display: block;" data-field="branch-email">
+                    info@hairvalley.com.au
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Branch 2: Leppington Branch Studio -->
+            <div class="contact-glass-card">
+              <div class="location-title" style="margin-bottom: 1.25rem;">
+                <span class="heading-card" style="font-size: 1.25rem;" data-field="branch2-name">Leppington Branch</span>
+                <span class="location-badge" style="background: rgba(198, 138, 127, 0.12); color: var(--espresso);">By Appt Only</span>
+              </div>
+
+              <div class="info-card-item">
+                <div class="info-icon-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <div>
+                  <strong style="color: var(--espresso); font-size: 0.95rem; display: block;">Appointment Policy</strong>
+                  <p class="body-sm" style="margin-top: 0.2rem; color: var(--espresso); font-weight: 500;" data-field="branch2-policy">
+                    By appointment only &amp; SMS confirmation
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card-item">
+                <div class="info-icon-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <strong style="color: var(--espresso); font-size: 0.95rem; display: block;">SMS Confirmation / Contact</strong>
+                  <div style="display: flex; gap: 0.75rem; margin-top: 0.2rem;">
+                    <a href="sms:0402399917" class="body-sm" style="color: var(--dusty-rose); font-weight: 600; text-decoration: none;" data-field="branch2-sms">
+                      SMS 0402 399 917
+                    </a>
+                    <span style="color: var(--warm-ash);">·</span>
+                    <a href="tel:0402399917" class="body-sm" style="color: var(--espresso); font-weight: 500; text-decoration: none;" data-field="branch2-sms-call">
+                      Call
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card-item">
+                <div class="info-icon-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <strong style="color: var(--espresso); font-size: 0.95rem; display: block;">Email</strong>
+                  <a href="mailto:info@hairvalley.com.au" class="body-sm" style="margin-top: 0.2rem; color: var(--dusty-rose); font-weight: 500; text-decoration: none; display: block;" data-field="branch2-email">
+                    info@hairvalley.com.au
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Instant Booking Callout -->
+            <div class="contact-glass-card" style="text-align: center;">
+              <h3 class="heading-card" style="font-size: 1.15rem; margin-bottom: 0.5rem;">Need an Immediate Appointment?</h3>
+              <p class="body-sm" style="color: var(--warm-ash); margin-bottom: 1.25rem;">
+                Browse live availability, select your favorite stylist, and lock in your timeslot instantly online.
+              </p>
+              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; width: 100%; justify-content: center; text-decoration: none;">
+                Book on Fresha Now →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Signature Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-main-grid">
+        <!-- Col 1: Brand, Newsletter & Socials -->
+        <div class="footer-col-brand">
+          <div class="footer-brand-intro">
+            <h3 class="footer-brand-title">Hair Valley</h3>
+            <p class="footer-brand-tagline">Hurstville's atelier for hair health &amp; colour</p>
+          </div>
+
+          <div class="footer-brand-meta">
+            <div class="footer-social-chips">
+              <a href="https://www.instagram.com/hairvalleyau?igsh=MWtodnJ1b2x3eTg3dA%3D%3D" target="_blank" rel="noopener noreferrer" class="glass-social-chip" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="https://web.facebook.com/hairvalleyau?mibextid=wwXIfr&rdid=eIToeRM0HSunWwZI&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F1HSjTPp475%2F%3Fmibextid%3DwwXIfr%26_rdc%3D1%26_rdr#" target="_blank" rel="noopener noreferrer" class="glass-social-chip" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.667 5H18V0h-3.808C10.592 0 9 1.582 9 4.615V8z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@hairvalleyhurstville" target="_blank" rel="noopener noreferrer" class="glass-social-chip" aria-label="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.41a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.41a8.16 8.16 0 0 0 4.76 1.52v-3.24z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Salon Locations (Hurstville Flagship + Leppington Branch) -->
+        <div class="footer-card">
+          <!-- Branch 1: Hurstville Flagship -->
+          <div class="branch-section">
+            <div class="location-title">
+              <span data-field="branch-name">Hurstville Flagship</span>
+              <span class="location-badge">Flagship</span>
+            </div>
+            <div class="contact-detail-list">
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div data-field="branch-address">
+                  Shop 435, Level 3, Crn of Cross St &amp; Park Road<br>
+                  Westfield Hurstville NSW 2220<br>
+                  <a href="https://maps.google.com/?q=Westfield+Hurstville" target="_blank" rel="noopener noreferrer" class="btn-directions-link">
+                    <span>Open in Google Maps</span>
+                    <span>↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:0280846922" class="contact-link" data-field="branch-phone">02 8084 6922</a>
+              </div>
+
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:info@hairvalley.com.au" class="contact-link" data-field="branch-email">info@hairvalley.com.au</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="footer-branch-divider"></div>
+
+          <!-- Branch 2: Leppington Branch -->
+          <div class="branch-section">
+            <div class="location-title">
+              <span data-field="branch2-name">Leppington Branch</span>
+              <span class="location-badge" style="background: rgba(198, 138, 127, 0.12); color: var(--espresso);">By Appt Only</span>
+            </div>
+            <div class="contact-detail-list">
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span style="color: var(--espresso); font-weight: 500;" data-field="branch2-policy">By appointment only &amp; SMS confirmation</span>
+              </div>
+
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+                <div>
+                  <span style="font-size: 0.75rem; color: var(--warm-ash); display: block;">SMS Confirmation</span>
+                  <a href="sms:0402399917" class="contact-link" style="font-weight: 600;" data-field="branch2-sms">0402 399 917</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 3: Trading Hours Card -->
+        <div class="footer-hours-card">
+          <div class="location-title">
+            <span>Opening Hours</span>
+            <span class="location-badge" style="background: rgba(46, 125, 50, 0.12); color: #2e7d32;">
+              Trading Hours
+            </span>
+          </div>
+          <div class="hours-schedule-list">
+            <div class="hours-schedule-row">
+              <span class="hours-day">Mon – Wed</span>
+              <span class="hours-time">9:30 am – 6:00 pm</span>
+            </div>
+            <div class="hours-schedule-row">
+              <span class="hours-day">Thursday (Late Night)</span>
+              <span class="hours-time hours-time--highlight">9:30 am – 9:00 pm</span>
+            </div>
+            <div class="hours-schedule-row">
+              <span class="hours-day">Friday – Saturday</span>
+              <span class="hours-time">9:30 am – 6:00 pm</span>
+            </div>
+            <div class="hours-schedule-row">
+              <span class="hours-day">Sunday</span>
+              <span class="hours-time">10:00 am – 6:00 pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-Width Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copy">
+          <a href="admin.html" class="footer-copy-admin-link" aria-label="Admin login">©2026</a> All Rights Reserved—Designed By <a href="https://clickbit.com.au/" target="_blank" rel="noopener noreferrer" class="footer-designer-link">ClickBit</a>
+        </p>
+        <div class="footer-legal-links">
+          <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+          <span class="footer-legal-sep">·</span>
+          <a href="terms-conditions.html" class="footer-legal-link">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
