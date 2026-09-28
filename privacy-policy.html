@@ -14,11 +14,20 @@
 </head>
 <body>
 
+  <!-- Top Promotional Announcement Bar (Controlled via Admin CMS & Supabase) -->
+  <aside class="site-announcement-bar" id="siteAnnouncementBar" style="display: none;" aria-label="Special Offer Announcement">
+    <div class="container announcement-inner">
+      <span class="announcement-badge" id="announcementBadge" style="display: none;"></span>
+      <span class="announcement-text" id="announcementText"></span>
+      <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&amp;pId=2626895" target="_blank" rel="noopener noreferrer" class="announcement-link" id="announcementLink">Book Now →</a>
+    </div>
+  </aside>
+
   <!-- Sticky Editorial Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link" aria-label="Hair Valley Home">
-        <span class="brand-name">Hair Valley</span>
+        <img src="images/hairvalley-logo.png" alt="Hair Valley" class="brand-logo-img" width="180" height="45">
       </a>
 
       <nav class="site-nav" aria-label="Main Navigation">
@@ -146,7 +155,7 @@
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-main-grid">
-        <!-- Col 1: Brand, Newsletter & Socials -->
+        <!-- Col 1: Editorial Brand, Newsletter & Social -->
         <div class="footer-col-brand">
           <div class="footer-brand-intro">
             <h3 class="footer-brand-title">Hair Valley</h3>
@@ -168,7 +177,7 @@
           </div>
         </div>
 
-        <!-- Col 2: Salon Locations (Hurstville Flagship + Leppington Branch) -->
+        <!-- Col 2: Salon Location (Hurstville Flagship) -->
         <div class="footer-card">
           <!-- Branch 1: Hurstville Flagship -->
           <div class="branch-section">
@@ -204,35 +213,6 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <a href="mailto:info@hairvalley.com.au" class="contact-link" data-field="branch-email">info@hairvalley.com.au</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Divider -->
-          <div class="footer-branch-divider"></div>
-
-          <!-- Branch 2: Leppington Branch -->
-          <div class="branch-section">
-            <div class="location-title">
-              <span>Leppington Branch</span>
-              <span class="location-badge" style="background: rgba(198, 138, 127, 0.12); color: var(--espresso);">By Appt Only</span>
-            </div>
-            <div class="contact-detail-list">
-              <div class="contact-detail-row">
-                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span style="color: var(--espresso); font-weight: 500;">By appointment only &amp; SMS confirmation</span>
-              </div>
-
-              <div class="contact-detail-row">
-                <svg class="contact-detail-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                </svg>
-                <div>
-                  <span style="font-size: 0.75rem; color: var(--warm-ash); display: block;">SMS Confirmation</span>
-                  <a href="sms:0402399917" class="contact-link" style="font-weight: 600;">0402 399 917</a>
-                </div>
               </div>
             </div>
           </div>
@@ -273,7 +253,7 @@
           <a href="admin.html" class="footer-copy-admin-link" aria-label="Admin login">©2026</a> All Rights Reserved—Designed By <a href="https://clickbit.com.au/" target="_blank" rel="noopener noreferrer" class="footer-designer-link">ClickBit</a>
         </p>
         <div class="footer-legal-links">
-          <a href="privacy-policy.html" class="footer-legal-link" style="color: var(--dusty-rose); font-weight: 600;">Privacy Policy</a>
+          <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
           <span class="footer-legal-sep">·</span>
           <a href="terms-conditions.html" class="footer-legal-link">Terms &amp; Conditions</a>
         </div>
@@ -282,5 +262,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/offers.js" defer></script>
 </body>
 </html>

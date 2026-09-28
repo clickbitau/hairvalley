@@ -1,3 +1,92 @@
+
+(function preseedBookingLinks() {
+  const defaultBooking = 'https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895';
+  function applyLinks() {
+    document.querySelectorAll('a.btn-glass, a.dock-btn-cta, a.btn-editorial-book').forEach(el => {
+      if (!el.href || el.href.includes('#') || el.textContent.includes('Book')) {
+        el.href = defaultBooking;
+        el.target = '_blank';
+        el.rel = 'noopener noreferrer';
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyLinks);
+  } else {
+    applyLinks();
+  }
+})();
+
+
+const ALLOWED_SERVICE_CATEGORIES = ['haircuts', 'blowwave', 'color', 'foils'];
+
+function switchServiceCategory(targetId, activeBtn) {
+  const pills = document.querySelectorAll('.pill-filter');
+  pills.forEach(p => p.classList.remove('is-active'));
+  if (activeBtn) {
+    activeBtn.classList.add('is-active');
+    activeBtn.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+  }
+
+  const sections = document.querySelectorAll('.service-category-section');
+  const statusBar = document.getElementById('filterStatusBar');
+  const statusLabel = document.getElementById('filterStatusLabel');
+
+  if (targetId === 'all') {
+    // Show only the 4 allowed categories: Haircuts, Blow Wave, Color Permanent, Foils
+    sections.forEach(sec => {
+      const id = sec.getAttribute('id');
+      if (ALLOWED_SERVICE_CATEGORIES.includes(id)) {
+        sec.style.display = '';
+      } else {
+        sec.style.display = 'none';
+      }
+    });
+    if (statusBar) statusBar.style.display = 'none';
+  } else {
+    // Show ONLY the selected category; hide all others
+    sections.forEach(sec => {
+      const id = sec.getAttribute('id');
+      sec.style.display = (id === targetId) ? '' : 'none';
+    });
+    if (statusBar && statusLabel && activeBtn) {
+      statusLabel.textContent = activeBtn.textContent.trim();
+      statusBar.style.display = '';
+    }
+  }
+
+  // Smoothly scroll to catalog top
+  const filterBar = document.querySelector('.filter-bar-wrap');
+  if (filterBar) {
+    const headerOffset = 90;
+    const elementPosition = filterBar.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({
+      top: Math.max(0, offsetPosition),
+      behavior: 'smooth'
+    });
+  }
+}
+
+// Immediate Click Delegation for category buttons
+(function setupImmediatePillDelegation() {
+  document.addEventListener('click', (e) => {
+    const pill = e.target.closest('.pill-filter');
+    if (pill) {
+      e.preventDefault();
+      const targetId = pill.getAttribute('data-target');
+      if (targetId) switchServiceCategory(targetId, pill);
+      return;
+    }
+    const clearBtn = e.target.closest('#btnClearFilter');
+    if (clearBtn) {
+      e.preventDefault();
+      const allPill = document.querySelector('.pill-filter[data-target="all"]');
+      if (allPill) switchServiceCategory('all', allPill);
+    }
+  }, { capture: true });
+})();
+
 /**
  * Hair Valley — Interactive Orchestration
  * Follows the design blueprint: motion is spent once on the hero load,
@@ -29,12 +118,30 @@ function initHairBreezeAnimation() {
   if (prefersReducedMotion) return;
 
   let start = performance.now();
+  let lastUpdate = 0;
+  let isVisible = true;
+
+  if ('IntersectionObserver' in window) {
+    const heroObs = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    }, { threshold: 0.05 });
+    const hero = document.querySelector('.hero-cinematic-stage') || turbulence.closest('svg');
+    if (hero) heroObs.observe(hero);
+  }
+
   function animateHair(time) {
-    const elapsed = (time - start) / 1000;
-    // Calm, slow sine wave (approx 7.5s cycle)
-    const baseFreqX = 0.012 + Math.sin(elapsed * 0.85) * 0.0035;
-    const baseFreqY = 0.016 + Math.cos(elapsed * 0.65) * 0.004;
-    turbulence.setAttribute('baseFrequency', `${baseFreqX.toFixed(5)} ${baseFreqY.toFixed(5)}`);
+    if (!isVisible) {
+      requestAnimationFrame(animateHair);
+      return;
+    }
+    // Throttle attribute updates to ~25fps to keep main thread completely free for instant button input
+    if (time - lastUpdate > 40) {
+      lastUpdate = time;
+      const elapsed = (time - start) / 1000;
+      const baseFreqX = 0.012 + Math.sin(elapsed * 0.85) * 0.0035;
+      const baseFreqY = 0.016 + Math.cos(elapsed * 0.65) * 0.004;
+      turbulence.setAttribute('baseFrequency', `${baseFreqX.toFixed(4)} ${baseFreqY.toFixed(4)}`);
+    }
     requestAnimationFrame(animateHair);
   }
   requestAnimationFrame(animateHair);
@@ -157,6 +264,7 @@ function initCategoryPills() {
   const filterStatusLabel = document.getElementById('filterStatusLabel');
   const btnClearFilter = document.getElementById('btnClearFilter');
 
+  // Arrow buttons scrolling for category pill track
   if (filterBarInner && btnFilterPrev && btnFilterNext) {
     const scrollStep = 240;
 
@@ -186,68 +294,14 @@ function initCategoryPills() {
     setTimeout(updateArrowState, 150);
   }
 
-  filterPills.forEach(pill => {
-    pill.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = pill.getAttribute('data-target');
-      currentFilter = targetId;
-
-      filterPills.forEach(p => p.classList.remove('is-active'));
-      pill.classList.add('is-active');
-
-      // Keep clicked pill visible in the scroll track
-      pill.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
-
-      if (targetId === 'all') {
-        categorySections.forEach(section => {
-          section.style.display = '';
-        });
-        if (filterStatusBar) filterStatusBar.style.display = 'none';
-        scrollToCatalogTop();
-      } else {
-        categorySections.forEach(section => {
-          if (section.getAttribute('id') === targetId) {
-            section.style.display = '';
-          } else {
-            section.style.display = 'none';
-          }
-        });
-        if (filterStatusBar && filterStatusLabel) {
-          filterStatusLabel.textContent = pill.textContent.trim();
-          filterStatusBar.style.display = '';
-        }
-        scrollToCatalogTop();
-      }
-    });
-  });
-
-  if (btnClearFilter) {
-    btnClearFilter.addEventListener('click', () => {
-      const allPill = document.querySelector('.pill-filter[data-target="all"]');
-      if (allPill) allPill.click();
-    });
-  }
-
-  // Highlight active pill on scroll ONLY when viewing all sections
-  if (categorySections.length && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      if (currentFilter !== 'all') return;
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          filterPills.forEach(pill => {
-            if (pill.getAttribute('data-target') === id) {
-              filterPills.forEach(p => p.classList.remove('is-active'));
-              pill.classList.add('is-active');
-            }
-          });
-        }
-      });
-    }, {
-      rootMargin: '-20% 0px -70% 0px'
-    });
-
-    categorySections.forEach(sec => observer.observe(sec));
+  // Handle URL hash on initial load (e.g. services.html#blowwave)
+  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+  if (ALLOWED_SERVICE_CATEGORIES.includes(hash)) {
+    const targetPill = document.querySelector(`.pill-filter[data-target="${hash}"]`);
+    if (targetPill) switchServiceCategory(hash, targetPill);
+  } else {
+    // Default: show all 4 allowed categories
+    switchServiceCategory('all', document.querySelector('.pill-filter[data-target="all"]'));
   }
 }
 
@@ -644,17 +698,27 @@ function hydrateReviewsTrack(track, reviews, fallbackUrl) {
 }
 
 function hydrateServicesPage(services, bookingUrl = 'https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895') {
+  const allowed = ['haircuts', 'blowwave', 'color', 'foils'];
   const categories = {};
-  services.forEach(s => {
-    const cat = s.category || 'haircuts';
-    if (!categories[cat]) categories[cat] = [];
-    categories[cat].push(s);
+  
+  (services || []).forEach(s => {
+    const cat = (s.category || '').toLowerCase().trim();
+    if (allowed.includes(cat)) {
+      if (!categories[cat]) categories[cat] = [];
+      categories[cat].push(s);
+    }
   });
 
   document.querySelectorAll('.service-category-section').forEach(section => {
+    const secId = section.getAttribute('id');
+    if (!allowed.includes(secId)) {
+      section.style.display = 'none';
+      return;
+    }
+
     const grid = section.querySelector('.services-catalog-grid');
     if (!grid) return;
-    const items = categories[section.getAttribute('id')] || [];
+    const items = categories[secId] || [];
 
     if (!items.length) {
       grid.innerHTML = '<p class="body-sm" style="grid-column: 1 / -1; color: var(--warm-ash); padding: 1rem 0;">No services currently listed in this category.</p>';

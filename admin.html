@@ -33,6 +33,13 @@
         <span class="admin-nav-text">Hero & Homepage</span>
       </button>
 
+      <button class="admin-nav-item" data-tab="offers" role="tab" aria-selected="false">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+        </svg>
+        <span class="admin-nav-text">Offers & Promos</span>
+      </button>
+
       <button class="admin-nav-item" data-tab="team" role="tab" aria-selected="false">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -93,7 +100,7 @@
       <header class="admin-header">
         <div>
           <h2 class="admin-page-title">Services & Pricing Catalog</h2>
-          <p class="admin-page-subtitle">Manage all salon offerings across 11 categories. Full Update and Delete controls.</p>
+          <p class="admin-page-subtitle">Manage all salon offerings across 4 categories. Full Update and Delete controls.</p>
         </div>
         <div class="admin-header-actions">
           <button class="btn-primary" id="btnAddNewService">
@@ -114,12 +121,6 @@
             <option value="blowwave">Blow Wave</option>
             <option value="color">Color Permanent</option>
             <option value="foils">Foils & Highlights</option>
-            <option value="keratin">Keratin Treatments</option>
-            <option value="treatment">Restorative Treatments</option>
-            <option value="extensions">Extensions</option>
-            <option value="packages">Signature Packages</option>
-            <option value="deals">Weekly Deals</option>
-            <option value="addons">Add-on Enhancements</option>
           </select>
           <span id="servicesCountBadge" style="font-size: 0.82rem; color: var(--warm-ash); font-weight: 500;">Showing services</span>
         </div>
@@ -239,6 +240,149 @@
               </div>
               <p style="font-size: 0.8rem; color: var(--warm-ash);">Recommended format: 3:4 Vertical Arch, ~900×1200, WebP or JPEG, max 2MB.</p>
             </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB: OFFERS & PROMOTIONAL CAMPAIGNS (ANNOUNCEMENT BAR & HOME OFFER SECTION)
+         ==================================================================== -->
+    <section id="tab-offers" class="admin-tab-content">
+      <header class="admin-header">
+        <div>
+          <h2 class="admin-page-title">Promotions & Special Offers</h2>
+          <p class="admin-page-subtitle">Control the top navbar announcement bar and homepage promotional campaign card.</p>
+        </div>
+        <div class="admin-header-actions">
+          <button class="btn-primary" id="btnSaveOffers">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Save &amp; Publish Offers</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- 1. Top Navbar Announcement Bar Card -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div>
+            <h3 class="admin-card-title">1. Top Navbar Announcement Bar</h3>
+            <p style="font-size: 0.85rem; color: var(--warm-ash); margin-top: 0.25rem;">
+              Displays as a banner above the main header across all website pages.
+            </p>
+          </div>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.875rem; font-weight: 600;">
+            <input type="checkbox" id="announcementEnabled" style="width: 18px; height: 18px; accent-color: var(--gold-accent, #c5a059);">
+            <span>Enable Announcement</span>
+          </label>
+        </div>
+
+        <form id="formAnnouncement" class="form-grid" onsubmit="return false;">
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="announcementInputText">Announcement Offer Text *</label>
+            <input type="text" id="announcementInputText" class="form-control" placeholder="e.g. 10% OFF all signature balayage &amp; treatment services this month · Code: SPRING10">
+            <p style="font-size: 0.8rem; color: var(--warm-ash); margin-top: 0.35rem;">
+              Leaving this empty or disabling the toggle will automatically hide the top announcement bar.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="announcementInputBadge">Badge Tag (Optional)</label>
+            <input type="text" id="announcementInputBadge" class="form-control" placeholder="e.g. LIMITED OFFER or 10% OFF">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="announcementInputLink">Target Link URL (Defaults to Fresha Booking)</label>
+            <input type="text" id="announcementInputLink" class="form-control" placeholder="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&amp;pId=2626895">
+          </div>
+        </form>
+      </div>
+
+      <!-- 2. Homepage Promotional Offer Campaign Section Card -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div>
+            <h3 class="admin-card-title">2. Homepage Promotional Campaign Card</h3>
+            <p style="font-size: 0.85rem; color: var(--warm-ash); margin-top: 0.25rem;">
+              Full-width showcase section on the homepage. <strong>Rule: Hidden by default; only displayed when an offer image is uploaded.</strong>
+            </p>
+          </div>
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.875rem; font-weight: 600;">
+            <input type="checkbox" id="offerCampaignEnabled" style="width: 18px; height: 18px; accent-color: var(--gold-accent, #c5a059);">
+            <span>Enable Section</span>
+          </label>
+        </div>
+
+        <form id="formOfferCampaign" class="form-grid" onsubmit="return false;">
+          <!-- Image Upload Area -->
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Promotional Offer Image *</label>
+            <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem;">
+              <input type="text" id="offerImageUrl" class="form-control" placeholder="No image uploaded yet" readonly style="background: rgba(0,0,0,0.03);">
+              <label class="btn-secondary" style="white-space: nowrap; cursor: pointer; display: flex; align-items: center; gap: 0.35rem;">
+                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span>Upload Image</span>
+                <input type="file" id="offerImageFileInput" accept="image/jpeg,image/png,image/webp,image/avif" style="display: none;">
+              </label>
+              <button type="button" class="btn-secondary" id="btnRemoveOfferImage" style="white-space: nowrap; color: #dc2626; border-color: rgba(220,38,38,0.25);">
+                Remove Image
+              </button>
+            </div>
+
+            <!-- Preview box -->
+            <div class="image-preview-container" style="margin-top: 0.5rem;">
+              <div class="image-preview-box" id="offerPreviewBox" style="min-height: 180px; max-height: 320px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.02); border: 1px dashed rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden;">
+                <img id="offerImagePreview" src="" alt="Offer Image Preview" style="max-height: 300px; width: auto; object-fit: contain; display: none;">
+                <div id="offerImagePlaceholderText" style="text-align: center; color: var(--warm-ash); padding: 2rem;">
+                  <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="margin: 0 auto 0.5rem; opacity: 0.4;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p style="font-weight: 500; font-size: 0.9rem;">No Offer Image Uploaded</p>
+                  <p style="font-size: 0.78rem; opacity: 0.7;">Upload a campaign poster or banner to activate this section on the homepage.</p>
+                </div>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--warm-ash); margin-top: 0.35rem;">
+                Image will be securely uploaded to Supabase Storage and stored in the database. When no image is present, the homepage section automatically disappears.
+              </p>
+            </div>
+          </div>
+
+          <!-- Eyebrow & Badge -->
+          <div class="form-group">
+            <label class="form-label" for="offerInputEyebrow">Eyebrow Tag</label>
+            <input type="text" id="offerInputEyebrow" class="form-control" placeholder="e.g. Exclusive Atelier Campaign">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="offerInputBadge">Promotion Badge Text</label>
+            <input type="text" id="offerInputBadge" class="form-control" placeholder="e.g. 10% OFF · LIMITED APPOINTMENTS">
+          </div>
+
+          <!-- Title -->
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="offerInputTitle">Campaign Headline Title</label>
+            <input type="text" id="offerInputTitle" class="form-control" placeholder="e.g. 10% Off All Signature Services &amp; Molecular Hair Spa">
+          </div>
+
+          <!-- Description -->
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label" for="offerInputDescription">Campaign Description / Terms</label>
+            <textarea id="offerInputDescription" class="form-control" rows="3" placeholder="e.g. Experience tailored colour correction and Japanese head spa restorative care at an exclusive salon rate this season. Use code at checkout or mention upon arrival."></textarea>
+          </div>
+
+          <!-- Action Button Text & URL -->
+          <div class="form-group">
+            <label class="form-label" for="offerInputBtnText">Call-To-Action Button Label</label>
+            <input type="text" id="offerInputBtnText" class="form-control" placeholder="e.g. Book with Offer →">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="offerInputBtnUrl">Call-To-Action Button URL (Defaults to Fresha Booking)</label>
+            <input type="text" id="offerInputBtnUrl" class="form-control" placeholder="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&amp;pId=2626895">
           </div>
         </form>
       </div>
@@ -545,12 +689,6 @@
                 <option value="blowwave">Blow Wave</option>
                 <option value="color">Color Permanent</option>
                 <option value="foils">Foils & Highlights</option>
-                <option value="keratin">Keratin Treatments</option>
-                <option value="treatment">Restorative Treatments</option>
-                <option value="extensions">Extensions</option>
-                <option value="packages">Signature Packages</option>
-                <option value="deals">Weekly Deals</option>
-                <option value="addons">Add-on Enhancements</option>
               </select>
             </div>
 
@@ -626,12 +764,6 @@
                 <option value="blowwave">Blow Wave</option>
                 <option value="color">Color Permanent</option>
                 <option value="foils">Foils & Highlights</option>
-                <option value="keratin">Keratin Treatments</option>
-                <option value="treatment">Restorative Treatments</option>
-                <option value="extensions">Extensions</option>
-                <option value="packages">Signature Packages</option>
-                <option value="deals">Weekly Deals</option>
-                <option value="addons">Add-on Enhancements</option>
               </select>
             </div>
 

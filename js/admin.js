@@ -7,6 +7,8 @@ let siteData = {
   hero: {},
   atelier: {},
   featuredHero: {},
+  announcement: {},
+  promotional_offer: {},
   promos: [],
   about: { rituals: [], stylists: [] },
   contact: { hurstville: {}, leppington: {}, hours: {} },
@@ -71,6 +73,7 @@ async function fetchContent() {
 
     renderServices();
     renderHeroAndAtelier();
+    renderOffers();
     renderStylists();
     renderRituals();
     renderContact();
@@ -551,6 +554,110 @@ document.getElementById('btnSaveHero')?.addEventListener('click', async () => {
 });
 
 /* ==========================================================================
+   6.5. OFFERS & PROMOTIONAL CAMPAIGNS (ANNOUNCEMENT BAR & HOME OFFER SECTION)
+   ========================================================================== */
+const FRESHA_URL = 'https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895';
+
+function renderOffers() {
+  // 1. Top Navbar Announcement Bar
+  const announcement = siteData.announcement || {};
+  const annEnabled = document.getElementById('announcementEnabled');
+  const annText = document.getElementById('announcementInputText');
+  const annBadge = document.getElementById('announcementInputBadge');
+  const annLink = document.getElementById('announcementInputLink');
+
+  if (annEnabled) annEnabled.checked = announcement.enabled === true;
+  if (annText) annText.value = announcement.text || '';
+  if (annBadge) annBadge.value = announcement.badge || '';
+  if (annLink) annLink.value = announcement.link || FRESHA_URL;
+
+  // 2. Homepage Promotional Offer Campaign Card
+  const promo = siteData.promotional_offer || {};
+  const promoEnabled = document.getElementById('offerCampaignEnabled');
+  const promoImgUrl = document.getElementById('offerImageUrl');
+  const promoImgPreview = document.getElementById('offerImagePreview');
+  const promoImgPlaceholder = document.getElementById('offerImagePlaceholderText');
+  const promoEyebrow = document.getElementById('offerInputEyebrow');
+  const promoBadge = document.getElementById('offerInputBadge');
+  const promoTitle = document.getElementById('offerInputTitle');
+  const promoDesc = document.getElementById('offerInputDescription');
+  const promoBtnText = document.getElementById('offerInputBtnText');
+  const promoBtnUrl = document.getElementById('offerInputBtnUrl');
+
+  if (promoEnabled) promoEnabled.checked = promo.enabled === true;
+  if (promoImgUrl) promoImgUrl.value = promo.image || '';
+
+  if (promo.image && promo.image.trim() !== '') {
+    if (promoImgPreview) {
+      promoImgPreview.src = promo.image;
+      promoImgPreview.style.display = 'block';
+    }
+    if (promoImgPlaceholder) promoImgPlaceholder.style.display = 'none';
+  } else {
+    if (promoImgPreview) {
+      promoImgPreview.src = '';
+      promoImgPreview.style.display = 'none';
+    }
+    if (promoImgPlaceholder) promoImgPlaceholder.style.display = 'block';
+  }
+
+  if (promoEyebrow) promoEyebrow.value = promo.eyebrow || '';
+  if (promoBadge) promoBadge.value = promo.badge || '';
+  if (promoTitle) promoTitle.value = promo.title || '';
+  if (promoDesc) promoDesc.value = promo.description || '';
+  if (promoBtnText) promoBtnText.value = promo.button_text || promo.buttonText || 'Book Now →';
+  if (promoBtnUrl) promoBtnUrl.value = promo.button_url || promo.buttonUrl || FRESHA_URL;
+}
+
+// Remove Offer Image button
+document.getElementById('btnRemoveOfferImage')?.addEventListener('click', () => {
+  const promoImgUrl = document.getElementById('offerImageUrl');
+  const promoImgPreview = document.getElementById('offerImagePreview');
+  const promoImgPlaceholder = document.getElementById('offerImagePlaceholderText');
+
+  if (promoImgUrl) promoImgUrl.value = '';
+  if (promoImgPreview) {
+    promoImgPreview.src = '';
+    promoImgPreview.style.display = 'none';
+  }
+  if (promoImgPlaceholder) promoImgPlaceholder.style.display = 'block';
+
+  showToast('Offer image removed. Click "Save & Publish Offers" to apply changes.');
+});
+
+// Save Offers & Announcement
+document.getElementById('btnSaveOffers')?.addEventListener('click', async () => {
+  const annLinkInput = document.getElementById('announcementInputLink')?.value.trim();
+  const btnTxt = document.getElementById('offerInputBtnText')?.value.trim() || 'Book Now →';
+  const btnUrlInput = document.getElementById('offerInputBtnUrl')?.value.trim();
+
+  siteData.announcement = {
+    ...siteData.announcement,
+    enabled: document.getElementById('announcementEnabled')?.checked === true,
+    text: document.getElementById('announcementInputText')?.value.trim() || '',
+    badge: document.getElementById('announcementInputBadge')?.value.trim() || '',
+    link: annLinkInput ? annLinkInput : FRESHA_URL,
+    button_text: 'Book with Offer →'
+  };
+
+  siteData.promotional_offer = {
+    ...siteData.promotional_offer,
+    enabled: document.getElementById('offerCampaignEnabled')?.checked === true,
+    image: document.getElementById('offerImageUrl')?.value.trim() || '',
+    eyebrow: document.getElementById('offerInputEyebrow')?.value.trim() || '',
+    badge: document.getElementById('offerInputBadge')?.value.trim() || '',
+    title: document.getElementById('offerInputTitle')?.value.trim() || '',
+    description: document.getElementById('offerInputDescription')?.value.trim() || '',
+    buttonText: btnTxt,
+    button_text: btnTxt,
+    buttonUrl: btnUrlInput ? btnUrlInput : FRESHA_URL,
+    button_url: btnUrlInput ? btnUrlInput : FRESHA_URL
+  };
+
+  await saveFullSiteData('Promotions & Special Offers published successfully!');
+});
+
+/* ==========================================================================
    7. CONTACT & HOURS SECTION UPDATES
    ========================================================================== */
 function renderContact() {
@@ -661,6 +768,21 @@ function initFileUploaders() {
     showToast('Arch portal image uploaded! Click Save to apply.');
   });
 
+  setupLocalUploader('offerImageFileInput', (url) => {
+    const promoImgUrl = document.getElementById('offerImageUrl');
+    const promoImgPreview = document.getElementById('offerImagePreview');
+    const promoImgPlaceholder = document.getElementById('offerImagePlaceholderText');
+
+    if (promoImgUrl) promoImgUrl.value = url;
+    if (promoImgPreview) {
+      promoImgPreview.src = url;
+      promoImgPreview.style.display = 'block';
+    }
+    if (promoImgPlaceholder) promoImgPlaceholder.style.display = 'none';
+
+    showToast('Offer image uploaded! Click "Save & Publish Offers" to activate.');
+  });
+
   setupLocalUploader('editServiceFileInput', (url) => {
     document.getElementById('editServiceImage').value = url;
     showToast('Service image attached.');
@@ -726,7 +848,7 @@ function setupLocalUploader(inputId, onSuccess) {
 }
 
 function uploadFile(file, callback) {
-  const allowed = ['image/jpeg', 'image/png', 'image/webp'];
+  const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/avif'];
   if (!allowed.includes(file.type)) {
     showToast('Unsupported format. Please upload JPG, PNG, or WebP.', 'error');
     return;

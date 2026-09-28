@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 const { createClient } = require('@supabase/supabase-js');
+const nodemailer = require('nodemailer');
 
 const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, 'data', 'site-data.json');
@@ -30,6 +31,50 @@ if (SUPABASE_URL && SUPABASE_KEY) {
   }
 }
 
+// SMTP Mailer (contact form → salon inbox)
+const CONTACT_EMAIL_TO = process.env.CONTACT_EMAIL_TO || 'info@hairvalley.com.au';
+const CONTACT_EMAIL_FROM = process.env.CONTACT_EMAIL_FROM || process.env.SMTP_USER;
+let mailer = null;
+
+if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+  try {
+    mailer = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '465', 10),
+      secure: process.env.SMTP_SECURE !== 'false',
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
+    });
+    console.log(`[Mailer] SMTP configured — contact inquiries will be sent to ${CONTACT_EMAIL_TO}`);
+  } catch (err) {
+    console.error('[Mailer] Failed to initialize SMTP transport:', err.message);
+  }
+} else {
+  console.log('[Mailer] SMTP not configured — contact inquiries will be saved but not emailed');
+}
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+async function sendInquiryEmail({ name, email, phone, message }) {
+  if (!mailer) return false;
+  await mailer.sendMail({
+    from: `"Hair Valley Website" <${CONTACT_EMAIL_FROM}>`,
+    to: CONTACT_EMAIL_TO,
+    replyTo: email,
+    subject: `New Contact Inquiry — ${name || email}`,
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`,
+    html: `
+      <h3 style="font-family:sans-serif;">New Contact Inquiry</h3>
+      <p style="font-family:sans-serif;"><b>Name:</b> ${esc(name)}<br>
+      <b>Email:</b> ${esc(email)}<br>
+      <b>Phone:</b> ${esc(phone) || 'Not provided'}</p>
+      <p style="font-family:sans-serif;"><b>Message:</b><br>${esc(message).replace(/\n/g, '<br>')}</p>
+    `
+  });
+  return true;
+}
+
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -38,6 +83,8 @@ const MIME_TYPES = {
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
   '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.avf': 'image/avif',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.json': 'application/json'
@@ -585,8 +632,19 @@ const server = http.createServer(async (req, res) => {
       });
       await writeSiteData(siteData);
 
+      let emailSent = false;
+      try {
+        emailSent = await sendInquiryEmail({ name, email, phone, message });
+        if (emailSent) {
+          console.log(`[Contact Inquiry] Email sent to ${CONTACT_EMAIL_TO}`);
+        }
+      } catch (mailErr) {
+        console.error('[Contact Inquiry] Email delivery failed:', mailErr.message);
+      }
+
       sendJson(res, 200, {
         success: true,
+        emailSent,
         message: 'Thank you for reaching out! Our salon team has received your message and will respond shortly.'
       });
     } catch (e) {
@@ -612,7 +670,9 @@ const server = http.createServer(async (req, res) => {
       const user = await getAuthUser(req);
       const payload = await parseBody(req);
       if (payload && typeof payload === 'object') {
-        const wr = await writeSiteData(payload);
+        const currentData = await readSiteData();
+        const mergedData = { ...currentData, ...payload };
+        const wr = await writeSiteData(mergedData);
 
         // Sync individual sections in Supabase site_sections
         if (supabase) {
@@ -898,9 +958,9 @@ const server = http.createServer(async (req, res) => {
 
       // Check allowed extensions
       const ext = path.extname(payload.filename).toLowerCase();
-      const allowed = ['.jpg', '.jpeg', '.png', '.webp'];
+      const allowed = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
       if (!allowed.includes(ext)) {
-        sendJson(res, 400, { error: `Format ${ext} not allowed. Please use JPEG, PNG, or WebP.` });
+        sendJson(res, 400, { error: `Format ${ext} not allowed. Please use JPEG, PNG, WebP, or AVIF.` });
         return;
       }
 
@@ -1111,7 +1171,22 @@ const server = http.createServer(async (req, res) => {
     }
 
     const ext = path.extname(filePath).toLowerCase();
-    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    let contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    if (ext === '.avf') {
+      try {
+        const header = Buffer.alloc(8);
+        const fd = fs.openSync(filePath, 'r');
+        fs.readSync(fd, header, 0, 8, 0);
+        fs.closeSync(fd);
+        if (header[0] === 0x89 && header[1] === 0x50 && header[2] === 0x4e && header[3] === 0x47) {
+          contentType = 'image/png';
+        } else {
+          contentType = 'image/avif';
+        }
+      } catch (e) {
+        contentType = 'image/png';
+      }
+    }
 
     res.writeHead(200, {
       'Content-Type': contentType,

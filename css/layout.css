@@ -62,7 +62,7 @@
   inset: 0;
   z-index: 4;
   pointer-events: none;
-  background: linear-gradient(to right, rgba(14, 10, 8, 0.05) 0%, rgba(14, 10, 8, 0.35) 45%, rgba(14, 10, 8, 0.72) 80%, rgba(14, 10, 8, 0.85) 100%);
+  background: linear-gradient(to right, rgba(14, 10, 8, 0) 0%, rgba(14, 10, 8, 0) 45%, rgba(14, 10, 8, 0.42) 65%, rgba(14, 10, 8, 0.76) 82%, rgba(14, 10, 8, 0.88) 100%);
 }
 
 /* Layer 1: Base razor-sharp crystal-clear image */
@@ -124,7 +124,7 @@
   }
 }
 
-/* Layer 4: Direct-Canvas Editorial Stage (Right-Aligned: Completely OFF her face!) */
+/* Layer 4: Direct-Canvas Editorial Stage (Anchored to Right Edge with Clean Left Spacing) */
 .hero-content-overlay {
   position: relative;
   z-index: 5;
@@ -133,15 +133,18 @@
   justify-content: flex-end;
   align-items: center;
   padding-block: clamp(3.5rem, 7vw, 6rem);
+  padding-right: clamp(1.5rem, 4.5vw, 4.5rem);
+  padding-left: clamp(1.5rem, 3vw, 3rem);
 }
 
 .hero-direct-editorial {
-  max-width: 580px;
+  max-width: 500px;
   width: 100%;
   margin-left: auto;
+  margin-right: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 1.4rem;
   text-align: left;
 }
 
@@ -510,10 +513,10 @@
 
 .editorial-featured-spread {
   display: grid;
-  grid-template-columns: 1.18fr 0.82fr;
-  gap: clamp(1.5rem, 3vw, 2.75rem);
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(1.25rem, 2vw, 1.85rem);
   align-items: stretch;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 }
 
 .featured-hero-card {
@@ -530,23 +533,25 @@
 .featured-companions-stack {
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 1.4vw, 1.35rem);
+  gap: clamp(0.85rem, 1.2vw, 1.15rem);
   justify-content: space-between;
 }
 
 .companion-card {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 120px 1fr auto;
   gap: 1.15rem;
   align-items: center;
 }
 
 .companion-card .companion-img-thumb {
-  width: 100%;
+  width: 120px;
+  height: 120px;
   aspect-ratio: 1 / 1;
   border-radius: var(--radius-md);
   overflow: hidden;
   background-color: var(--blush-veil);
+  flex-shrink: 0;
 }
 
 .companion-card .companion-img-thumb img {
@@ -1247,6 +1252,8 @@
   .editorial-featured-spread {
     grid-template-columns: 1fr;
     gap: 1.75rem;
+    max-width: 680px;
+    margin-inline: auto;
   }
 
   .promo-ribbon-section {
@@ -1419,11 +1426,23 @@
 
   .companion-card {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 0.85rem;
   }
 
   .companion-card .companion-img-thumb {
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .companion-action {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(226, 216, 206, 0.45);
   }
 
   .stylist-companion-item {
