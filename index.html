@@ -61,30 +61,14 @@
 
   <main>
     <!-- ====================================================================
-         Section 1.1: Hero Section (Cinematic Glassy Canvas with Swaying Hair)
+         Section 1.1: Hero Section (Cinematic Glassy Canvas)
          ==================================================================== -->
     <section class="hero-cinematic-stage" id="hero">
       <div class="hero-canvas-viewport">
-        <!-- SVG Displacement Filter for Fluid Organic Hair Wave Motion -->
-        <svg class="hair-svg-filter" width="0" height="0" style="position: absolute;" aria-hidden="true">
-          <filter id="hairBreezeDisplacement" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence id="hairTurbulence" type="fractalNoise" baseFrequency="0.012 0.016" numOctaves="2" result="turbulence" />
-            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="14" xChannelSelector="R" yChannelSelector="G" />
-          </filter>
-        </svg>
-
         <!-- Base Crisp Layer (Sharp, tranquil side profile & scene) -->
         <div class="hero-layer-base">
-          <img src="images/hero-treatment.jpg" alt="Hair Valley salon atelier with client experiencing luxury haircare in bespoke styling station" class="hero-bg-img" width="1600" height="900" loading="eager">
+          <img src="images/hero-treatment.jpg?v=3" alt="Hair Valley client receiving a steam hair treatment while a stylist applies colour in the salon atelier" class="hero-bg-img" width="1600" height="900" loading="eager">
         </div>
-
-        <!-- Animated Hair Sway Layer (Masked so only the hair waves) -->
-        <div class="hero-layer-hair-motion" aria-hidden="true">
-          <img src="images/hero-treatment.jpg" alt="" class="hero-bg-img hair-motion-filtered" width="1600" height="900">
-        </div>
-
-        <!-- Glossy Specular Light Reflection across Hair Waves -->
-        <div class="hero-specular-gleam" aria-hidden="true"></div>
 
         <!-- Direct-Canvas Magazine Typography & Floating Crystal Action Dock -->
         <div class="hero-content-overlay">
@@ -175,14 +159,14 @@
           <!-- Flanking Values Right Column -->
           <div class="hero-flank-right">
             <div class="hero-stat-badge" style="text-align: left; padding: 1.25rem;">
-              <span class="body-text" style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--espresso); display: block;">Like Family</span>
+              <span class="body-text" style="font-size: 1.05rem; font-weight: 600; color: var(--espresso); display: block;">Like Family</span>
               <p class="caption" style="margin-top: 0.35rem; line-height: 1.5;">
                 We treat every guest like family, listening to your needs and delivering results that exceed expectations.
               </p>
             </div>
 
             <div class="hero-stat-badge" style="margin-top: 0.75rem; text-align: left; padding: 1.25rem;">
-              <span class="body-text" style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--espresso); display: block;">Confidence & Care</span>
+              <span class="body-text" style="font-size: 1.05rem; font-weight: 600; color: var(--espresso); display: block;">Confidence & Care</span>
               <p class="caption" style="margin-top: 0.35rem; line-height: 1.5;">
                 Our goal is for every client to leave feeling refreshed, rejuvenated, and full of confidence.
               </p>
@@ -214,24 +198,23 @@
 
         <div class="editorial-featured-spread">
           <!-- Hero-Sized Feature Card: Category 01 · Haircuts -->
-          <article class="glass-card--medium featured-hero-card">
+          <article class="glass-card--medium featured-hero-card" data-featured-cat="haircuts">
             <div class="card-img-thumb">
               <img src="images/service-haircut-client.jpg" alt="Client with precision blonde stylecut" width="640" height="440" loading="lazy">
             </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+            <div style="margin-bottom: 0.35rem;">
               <span class="eyebrow eyebrow--rose">Category 01 · Haircuts</span>
-              <span class="caption" style="color: var(--espresso); font-weight: 600; font-family: var(--font-display); font-size: 1.15rem;">From A$40.50</span>
             </div>
             <h3 class="heading-card" style="font-size: 1.65rem; margin-top: 0.35rem; margin-bottom: 0.65rem;">Precision Stylecut &amp; Re-Shape</h3>
             <p class="body-text" style="line-height: 1.55;">
-              Personalized shape consultation and precision wet-cutting tailored to your natural density and bone structure. Includes customized face-framing and effortless movement.
+              Personalised shape consultation and precision wet-cutting tailored to your natural density and bone structure. Includes customised face-framing and effortless movement.
             </p>
             <div style="margin-top: auto; padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
               <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="btn-glass" style="font-size: 0.88rem; padding: 0.7rem 1.6rem;">
                 Book Haircut
               </a>
-              <a href="services.html#haircuts" class="caption" style="color: var(--dusty-rose); font-weight: 500; display: inline-flex; align-items: center; gap: 0.25rem;">
-                Explore all haircuts <span>→</span>
+              <a href="services.html" class="caption" style="color: var(--dusty-rose); font-weight: 500; display: inline-flex; align-items: center; gap: 0.25rem;">
+                Explore all services <span>→</span>
               </a>
             </div>
           </article>
@@ -239,7 +222,7 @@
           <!-- Stacked Companions: Categories 02, 03, 04 -->
           <div class="featured-companions-stack">
             <!-- Companion 1: Category 02 · Blow Wave -->
-            <article class="companion-card">
+            <article class="companion-card" data-featured-cat="blowwave">
               <div class="companion-img-thumb">
                 <img src="images/service-blowwave-client.jpg" alt="Brunette client with bouncy blow wave" width="220" height="220" loading="lazy">
               </div>
@@ -249,35 +232,33 @@
                 <p class="caption" style="line-height: 1.45; margin-top: 0.25rem;">
                   Tailored round-brush blowout with bouncy movement and high-shine polish.
                 </p>
-                <a href="services.html#blowwave" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                <a href="services.html" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
                   View service details <span>→</span>
                 </a>
               </div>
               <div class="companion-action">
-                <span class="companion-price">From A$55</span>
                 <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="companion-book-btn">
                   Book Now
                 </a>
               </div>
             </article>
 
-            <!-- Companion 2: Category 03 · Color Permanent -->
-            <article class="companion-card">
+            <!-- Companion 2: Category 03 · Colour Permanent -->
+            <article class="companion-card" data-featured-cat="color">
               <div class="companion-img-thumb">
                 <img src="images/service-color-client.jpg" alt="Rich permanent colour on long glossy hair" width="220" height="220" loading="lazy">
               </div>
               <div class="companion-content">
-                <span class="caption" style="color: var(--dusty-rose); font-weight: 500;">Category 03 · Color Permanent</span>
+                <span class="caption" style="color: var(--dusty-rose); font-weight: 500;">Category 03 · Colour Permanent</span>
                 <h3 class="heading-card" style="font-size: 1.18rem; margin-top: 0.15rem;">Permanent Colour &amp; Roots</h3>
                 <p class="caption" style="line-height: 1.45; margin-top: 0.25rem;">
                   Seamless grey blending, bespoke rich permanent tint, and gloss tone refresh.
                 </p>
-                <a href="services.html#color" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                <a href="services.html" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
                   View service details <span>→</span>
                 </a>
               </div>
               <div class="companion-action">
-                <span class="companion-price">From A$95</span>
                 <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="companion-book-btn">
                   Book Now
                 </a>
@@ -285,7 +266,7 @@
             </article>
 
             <!-- Companion 3: Category 04 · Foils -->
-            <article class="companion-card">
+            <article class="companion-card" data-featured-cat="foils">
               <div class="companion-img-thumb">
                 <img src="images/service-foils-client.jpg" alt="Dimensional blonde foils and balayage" width="220" height="220" loading="lazy">
               </div>
@@ -295,12 +276,11 @@
                 <p class="caption" style="line-height: 1.45; margin-top: 0.25rem;">
                   Micro-fine highlight placement, luminous brightening, and custom gloss toner.
                 </p>
-                <a href="services.html#foils" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                <a href="services.html" class="caption" style="color: var(--dusty-rose); font-weight: 500; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
                   View service details <span>→</span>
                 </a>
               </div>
               <div class="companion-action">
-                <span class="companion-price">From A$145</span>
                 <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="companion-book-btn">
                   Book Now
                 </a>
@@ -412,7 +392,7 @@
       <div class="container">
         <div class="atmosphere-collage-wrap">
           <div class="atmosphere-text-floater">
-            <span class="eyebrow">The Hair Valley Sanctuary</span>
+            <span class="label-caps">The Hair Valley Sanctuary</span>
             <h2 class="display-section" style="margin-top: 0.35rem; margin-bottom: 1.25rem;">
               Comfort, connection, and craft in every detail.
             </h2>
@@ -426,7 +406,7 @@
             </p>
 
             <div style="margin-top: 1.75rem;">
-              <a href="about.html" class="eyebrow eyebrow--rose" style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem;">
+              <a href="about.html" class="body-text" style="color: var(--dusty-rose); font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem;">
                 Read our salon philosophy <span>→</span>
               </a>
             </div>
@@ -478,7 +458,7 @@
             Real words. Verified Google reviews.
           </h2>
           <p class="body-sm" style="margin-top: 0.75rem; color: var(--warm-ash);">
-            Discover why clients trust Hair Valley for precision styling, dimensional color, and restorative hair care.
+            Discover why clients trust Hair Valley for precision styling, dimensional colour, and restorative hair care.
           </p>
           <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 1rem;">
             <a href="https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,," target="_blank" rel="noopener noreferrer" class="reviews-badge-dock" id="googleReviewsBadgeLink" title="View Hair Valley on Google Reviews">
@@ -596,7 +576,7 @@
                 <span class="reviews-stars-gold">★★★★★</span>
               </div>
               <p class="review-body-text">
-                “Best salon in Hurstville by far! From the moment you walk in, the team makes you feel comfortable and pampered. My color turned out absolutely stunning and the blowdry lasted for days. Such talented and friendly professionals.”
+                “Best salon in Hurstville by far! From the moment you walk in, the team makes you feel comfortable and pampered. My colour turned out absolutely stunning and the blowdry lasted for days. Such talented and friendly professionals.”
               </p>
               <div class="review-card-footer">
                 <span class="review-date">Google Verified</span>

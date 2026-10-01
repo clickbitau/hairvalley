@@ -158,12 +158,16 @@ function renderServices() {
         <img src="${s.image || 'images/services/cut-ladies.jpg'}" alt="${s.name}" onerror="this.src='images/services/cut-ladies.jpg'">
       </div>
       <div class="service-admin-info">
-        <div class="service-admin-category">${s.category || 'General'}</div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+          <div class="service-admin-category">${s.category || 'General'}</div>
+          ${s.featured ? `<span style="font-size: 0.7rem; background: rgba(198, 138, 127, 0.15); color: var(--dusty-rose); padding: 0.2rem 0.5rem; border-radius: 9999px; font-weight: 600;">★ Featured on Home</span>` : ''}
+        </div>
         <h4 class="service-admin-name">${escapeHtml(s.name)}</h4>
         <div class="service-admin-pricing">
-          <span class="service-admin-price">${escapeHtml(s.price || '')}</span>
+          ${s.price ? `<span class="service-admin-price">${escapeHtml(s.price)}</span>` : ''}
           ${s.originalPrice ? `<span style="font-size: 0.78rem; text-decoration: line-through; color: var(--warm-ash);">${escapeHtml(s.originalPrice)}</span>` : ''}
-          <span class="service-admin-dur">· ${escapeHtml(s.duration || '')}</span>
+          ${s.duration ? `<span class="service-admin-dur">${s.price || s.originalPrice ? '· ' : ''}${escapeHtml(s.duration)}</span>` : ''}
+          ${!s.price && !s.originalPrice && !s.duration ? `<span style="font-size: 0.78rem; color: var(--warm-ash); font-style: italic;">No price/time set (Optional)</span>` : ''}
         </div>
         ${s.savings ? `<span style="font-size: 0.72rem; color: #2e7d32; font-weight: 600;">${escapeHtml(s.savings)}</span>` : ''}
         <p class="service-admin-desc">${escapeHtml(s.description || '')}</p>
@@ -189,6 +193,9 @@ document.getElementById('searchServicesInput')?.addEventListener('input', render
 // Open Add Service Modal
 document.getElementById('btnAddNewService')?.addEventListener('click', () => {
   document.getElementById('formAddService').reset();
+  if (document.getElementById('addServiceFeatured')) {
+    document.getElementById('addServiceFeatured').checked = false;
+  }
   openModal('modalAddService');
 });
 
@@ -203,6 +210,7 @@ document.getElementById('formAddService')?.addEventListener('submit', async (e) 
     price: document.getElementById('addServicePrice').value.trim(),
     originalPrice: document.getElementById('addServiceOriginalPrice').value.trim(),
     savings: document.getElementById('addServiceSavings').value.trim(),
+    featured: document.getElementById('addServiceFeatured')?.checked || false,
     description: document.getElementById('addServiceDesc').value.trim(),
     image: document.getElementById('addServiceImage').value.trim() || 'images/services/cut-ladies.jpg'
   };
@@ -215,6 +223,11 @@ document.getElementById('formAddService')?.addEventListener('submit', async (e) 
     });
     const result = await res.json();
     if (res.ok && result.success) {
+      if (result.service.featured) {
+        siteData.services.forEach(s => {
+          if (s.category === result.service.category) s.featured = false;
+        });
+      }
       siteData.services.push(result.service);
       renderServices();
       closeModal('modalAddService');
@@ -239,6 +252,9 @@ window.openEditServiceModal = function(id) {
   document.getElementById('editServicePrice').value = service.price || '';
   document.getElementById('editServiceOriginalPrice').value = service.originalPrice || '';
   document.getElementById('editServiceSavings').value = service.savings || '';
+  if (document.getElementById('editServiceFeatured')) {
+    document.getElementById('editServiceFeatured').checked = Boolean(service.featured);
+  }
   document.getElementById('editServiceDesc').value = service.description || '';
   document.getElementById('editServiceImage').value = service.image || '';
 
@@ -258,6 +274,7 @@ document.getElementById('formEditService')?.addEventListener('submit', async (e)
     price: document.getElementById('editServicePrice').value.trim(),
     originalPrice: document.getElementById('editServiceOriginalPrice').value.trim(),
     savings: document.getElementById('editServiceSavings').value.trim(),
+    featured: document.getElementById('editServiceFeatured')?.checked || false,
     description: document.getElementById('editServiceDesc').value.trim(),
     image: document.getElementById('editServiceImage').value.trim()
   };
@@ -271,7 +288,14 @@ document.getElementById('formEditService')?.addEventListener('submit', async (e)
     const result = await res.json();
     if (res.ok && result.success) {
       const idx = siteData.services.findIndex(s => s.id === id);
-      if (idx !== -1) siteData.services[idx] = result.service;
+      if (idx !== -1) {
+        if (result.service.featured) {
+          siteData.services.forEach(s => {
+            if (s.category === result.service.category && s.id !== id) s.featured = false;
+          });
+        }
+        siteData.services[idx] = result.service;
+      }
       renderServices();
       closeModal('modalEditService');
       showToast(`Service "${updated.name}" updated successfully!`);

@@ -22,7 +22,7 @@ body {
   background-color: var(--porcelain, #FBF7F4);
   color: var(--espresso, #362621);
   font-family: var(--font-body, 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 1rem;
+  font-size: calc(1rem + 1px);
   line-height: var(--line-height-body, 1.4);
   overflow-x: hidden;
 }

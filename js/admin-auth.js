@@ -34,7 +34,17 @@
     if (currentSession && currentSession.access_token) {
       options.headers['Authorization'] = `Bearer ${currentSession.access_token}`;
     }
-    return fetch(url, options);
+    const res = await fetch(url, options);
+    if (res.status === 401) {
+      console.warn('[Admin Auth] 401 Unauthorized for:', url);
+      if (currentSession) {
+        if (typeof window.showToast === 'function') {
+          window.showToast('Your session has expired or is unauthorized. Please log in again.', 'error');
+        }
+        renderAuthState(null);
+      }
+    }
+    return res;
   }
 
   window.authFetch = authFetch;

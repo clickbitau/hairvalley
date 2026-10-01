@@ -97,7 +97,16 @@ async function getAuthUser(req) {
     return null;
   }
   const token = authHeader.split(' ')[1];
-  if (!token || !supabase) return null;
+  if (!token) return null;
+
+  // Direct match with configured service role key or secret key (programmatic/CLI admin calls)
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const secretKey = process.env.SUPABASE_SECRET_KEY;
+  if ((serviceKey && token === serviceKey) || (secretKey && token === secretKey)) {
+    return { id: 'service-role-admin', email: 'admin@hairvalley.com.au', role: 'service_role' };
+  }
+
+  if (!supabase || !supabase.auth) return null;
 
   try {
     const { data: { user }, error } = await supabase.auth.getUser(token);
@@ -108,6 +117,19 @@ async function getAuthUser(req) {
     console.warn('[Auth] Token verification notice:', err.message);
   }
   return null;
+}
+
+// REST Security Middleware: enforce 401 Unauthorized on protected routes
+async function requireAuth(req, res) {
+  const user = await getAuthUser(req);
+  if (!user) {
+    sendJson(res, 401, {
+      success: false,
+      error: 'Unauthorized: Valid Supabase admin authentication token required'
+    });
+    return null;
+  }
+  return user;
 }
 
 async function checkSupabaseStatus() {
@@ -519,6 +541,8 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (pathname === '/api/reviews' && req.method === 'POST') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
       const payload = await parseBody(req);
       const siteData = await readSiteData();
@@ -538,6 +562,8 @@ const server = http.createServer(async (req, res) => {
 
   // Live Sync with Google Places API
   if (pathname === '/api/reviews/sync-google' && req.method === 'POST') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
       const payload = await parseBody(req).catch(() => ({}));
       const siteData = await readSiteData();
@@ -666,8 +692,9 @@ const server = http.createServer(async (req, res) => {
 
   // 2. POST /api/content (Full update)
   if (pathname === '/api/content' && req.method === 'POST') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const payload = await parseBody(req);
       if (payload && typeof payload === 'object') {
         const currentData = await readSiteData();
@@ -717,12 +744,18 @@ const server = http.createServer(async (req, res) => {
 
   // 3. POST /api/service (Create service)
   if (pathname === '/api/service' && req.method === 'POST') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const item = await parseBody(req);
       const data = await readSiteData();
       if (!data.services) data.services = [];
       item.id = item.id || ('srv-' + Date.now());
+      if (item.featured) {
+        data.services.forEach(s => {
+          if (s.category === item.category) s.featured = false;
+        });
+      }
       data.services.push(item);
       const wr = await writeSiteData(data);
 
@@ -757,13 +790,20 @@ const server = http.createServer(async (req, res) => {
 
   // 4. PUT /api/service (Update service)
   if (pathname === '/api/service' && req.method === 'PUT') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const item = await parseBody(req);
       const data = await readSiteData();
       if (!data.services) data.services = [];
       const idx = data.services.findIndex(s => s.id === item.id);
       if (idx !== -1) {
+        if (item.featured) {
+          const targetCat = item.category || data.services[idx].category;
+          data.services.forEach(s => {
+            if (s.category === targetCat && s.id !== item.id) s.featured = false;
+          });
+        }
         data.services[idx] = { ...data.services[idx], ...item };
         const wr = await writeSiteData(data);
 
@@ -800,8 +840,9 @@ const server = http.createServer(async (req, res) => {
 
   // 5. DELETE /api/service (Delete service)
   if (pathname === '/api/service' && req.method === 'DELETE') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const queryId = parsedUrl.searchParams.get('id') || (await parseBody(req)).id;
       const data = await readSiteData();
       if (!data.services) data.services = [];
@@ -832,8 +873,9 @@ const server = http.createServer(async (req, res) => {
 
   // 6. POST /api/stylist (Create stylist)
   if (pathname === '/api/stylist' && req.method === 'POST') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const stylist = await parseBody(req);
       const data = await readSiteData();
       if (!data.about) data.about = {};
@@ -870,8 +912,9 @@ const server = http.createServer(async (req, res) => {
 
   // 7. PUT /api/stylist (Update stylist)
   if (pathname === '/api/stylist' && req.method === 'PUT') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const stylist = await parseBody(req);
       const data = await readSiteData();
       if (!data.about || !data.about.stylists) {
@@ -913,8 +956,9 @@ const server = http.createServer(async (req, res) => {
 
   // 8. DELETE /api/stylist (Delete stylist)
   if (pathname === '/api/stylist' && req.method === 'DELETE') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const queryId = parsedUrl.searchParams.get('id') || (await parseBody(req)).id;
       const data = await readSiteData();
       if (!data.about || !data.about.stylists) {
@@ -948,8 +992,9 @@ const server = http.createServer(async (req, res) => {
 
   // 9. POST /api/upload-image (Supabase Storage + Media Assets Table)
   if (pathname === '/api/upload-image' && req.method === 'POST') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const payload = await parseBody(req);
       if (!payload.data || !payload.filename) {
         sendJson(res, 400, { error: 'Missing data or filename' });
@@ -1032,8 +1077,9 @@ const server = http.createServer(async (req, res) => {
 
   // 10. DELETE /api/delete-image (Delete from Supabase Storage & media_assets)
   if (pathname === '/api/delete-image' && req.method === 'DELETE') {
+    const user = await requireAuth(req, res);
+    if (!user) return;
     try {
-      const user = await getAuthUser(req);
       const payload = await parseBody(req);
       const fileUrl = payload.url || payload.filename || parsedUrl.searchParams.get('url') || parsedUrl.searchParams.get('filename');
       if (!fileUrl) {

@@ -360,149 +360,6 @@
   color: var(--espresso);
 }
 
-/* --- Services Page: Sticky Category Filter Bar --- */
-.filter-bar-wrap {
-  position: sticky;
-  top: 76px;
-  z-index: 90;
-  background: rgba(251, 247, 244, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(198, 138, 127, 0.15);
-  padding-block: 0.75rem;
-  margin-bottom: 2.5rem;
-}
-
-.filter-bar-container {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  position: relative;
-}
-
-.filter-bar-inner {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  flex: 1;
-  min-width: 0;
-  padding-block: 0.25rem;
-}
-
-.filter-bar-inner::-webkit-scrollbar {
-  display: none;
-}
-
-.filter-scroll-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(198, 138, 127, 0.35);
-  box-shadow: var(--glass-shadow-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--espresso);
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all var(--transition-fast);
-  z-index: 2;
-}
-
-.filter-scroll-btn:hover {
-  background: var(--espresso);
-  color: #ffffff;
-  border-color: var(--espresso);
-  box-shadow: var(--glass-shadow);
-  transform: scale(1.06);
-}
-
-.filter-scroll-btn:active {
-  transform: scale(0.92);
-}
-
-.filter-scroll-btn:disabled {
-  opacity: 0.25;
-  cursor: not-allowed;
-  pointer-events: none;
-  transform: none;
-}
-
-.pill-filter {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  font-weight: 400;
-  padding: 0.55rem 1.25rem;
-  border-radius: var(--radius-pill);
-  color: var(--espresso);
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.pill-filter:hover {
-  background: rgba(255, 255, 255, 0.75);
-  color: var(--dusty-rose);
-}
-
-.pill-filter.is-active {
-  background: rgba(198, 138, 127, 0.22);
-  color: var(--espresso);
-  font-weight: 500;
-  border-color: rgba(198, 138, 127, 0.45);
-  box-shadow: 0 2px 10px rgba(198, 138, 127, 0.15);
-}
-
-/* --- Services Page: Active Filter Status Bar --- */
-.filter-status-bar {
-  margin-bottom: 2rem;
-}
-
-.filter-status-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-}
-
-.filter-status-text {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: var(--espresso);
-}
-
-.filter-status-text strong {
-  color: var(--dusty-rose);
-  font-weight: 600;
-}
-
-.filter-clear-btn {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 0.45rem 1.1rem;
-  border-radius: var(--radius-pill);
-  color: var(--dusty-rose);
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(198, 138, 127, 0.45);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.filter-clear-btn:hover {
-  background: var(--dusty-rose);
-  color: #ffffff;
-}
-
 /* --- Services Catalog Glass Card (Lighter Density) --- */
 .glass-card--light {
   background: var(--glass-card-bg);
@@ -844,10 +701,6 @@
     top: 68px;
     height: calc(100vh - 68px);
   }
-
-  .filter-bar-wrap {
-    top: 68px;
-  }
 }
 
 /* ==========================================================================
@@ -1132,7 +985,7 @@
 
 .legal-paragraph {
   font-family: var(--font-body);
-  font-size: 0.94rem;
+  font-size: calc(0.94rem + 1px);
   line-height: 1.75;
   color: var(--warm-ash);
 }
@@ -1148,7 +1001,7 @@
 
 .legal-list li {
   font-family: var(--font-body);
-  font-size: 0.94rem;
+  font-size: calc(0.94rem + 1px);
   line-height: 1.65;
   color: var(--warm-ash);
   position: relative;
@@ -1339,12 +1192,10 @@
 
 
 /* --- Instant Button Tactile Press Feedback (0ms visual confirmation) --- */
-.pill-filter:active,
 .btn-glass:active,
 .btn-primary:active,
 .btn-secondary:active,
 .dock-btn-cta:active,
-.filter-scroll-btn:active,
 .btn-directions-link:active,
 button:active {
   transform: scale(0.96) !important;

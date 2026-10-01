@@ -81,50 +81,7 @@
   filter: contrast(1.05) saturate(1.03);
 }
 
-/* Layer 2: Animated Hair Motion with Organic Wave Filter */
-.hero-layer-hair-motion {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  /* Strict mask: leaves face (left 35%) completely untouched and crisp; only moves hair on right */
-  mask-image: linear-gradient(to right, transparent 0%, transparent 35%, black 50%, black 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 35%, black 50%, black 100%);
-}
-
-.hair-motion-filtered {
-  filter: url(#hairBreezeDisplacement) contrast(1.05) saturate(1.03);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: left center;
-}
-
-/* Layer 3: Glossy Specular Hair Gleam (Light sweeping across dark hair on right, not on face) */
-.hero-specular-gleam {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 65%;
-  height: 100%;
-  z-index: 3;
-  pointer-events: none;
-  background: radial-gradient(ellipse 60% 40% at 65% 45%, rgba(255, 255, 255, 0.16) 0%, transparent 70%);
-  animation: hairGleamPulse 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-}
-
-@keyframes hairGleamPulse {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(0.98);
-  }
-  50% {
-    opacity: 0.75;
-    transform: scale(1.02);
-  }
-}
-
-/* Layer 4: Direct-Canvas Editorial Stage (Anchored to Right Edge with Clean Left Spacing) */
+/* Layer 2: Direct-Canvas Editorial Stage (Anchored to Right Edge with Clean Left Spacing) */
 .hero-content-overlay {
   position: relative;
   z-index: 5;
@@ -207,7 +164,7 @@
 
 .hero-editorial-quote {
   font-family: var(--font-body);
-  font-size: 1.02rem;
+  font-size: calc(1.02rem + 1px);
   line-height: 1.6;
   color: rgba(251, 247, 244, 0.92);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
@@ -1186,7 +1143,7 @@
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(198, 138, 127, 0.25);
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: calc(0.9rem + 1px);
   color: var(--espresso);
 }
 

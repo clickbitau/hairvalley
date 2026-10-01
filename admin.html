@@ -99,7 +99,7 @@
     <section id="tab-services" class="admin-tab-content is-active">
       <header class="admin-header">
         <div>
-          <h2 class="admin-page-title">Services & Pricing Catalog</h2>
+          <h2 class="admin-page-title">Services & Pricing Catalogue</h2>
           <p class="admin-page-subtitle">Manage all salon offerings across 4 categories. Full Update and Delete controls.</p>
         </div>
         <div class="admin-header-actions">
@@ -119,7 +119,7 @@
             <option value="all">All Categories</option>
             <option value="haircuts">Haircuts</option>
             <option value="blowwave">Blow Wave</option>
-            <option value="color">Color Permanent</option>
+            <option value="color">Colour Permanent</option>
             <option value="foils">Foils & Highlights</option>
           </select>
           <span id="servicesCountBadge" style="font-size: 0.82rem; color: var(--warm-ash); font-weight: 500;">Showing services</span>
@@ -571,7 +571,7 @@
               <td>2.0 MB</td>
             </tr>
             <tr>
-              <td><strong>Services Catalog Thumbnails</strong></td>
+              <td><strong>Services Catalogue Thumbnails</strong></td>
               <td>1:1 Square or 16:11</td>
               <td>800 × 800 px</td>
               <td>.webp, .jpg, .png</td>
@@ -687,20 +687,20 @@
                 <option value="">— No category —</option>
                 <option value="haircuts">Haircuts</option>
                 <option value="blowwave">Blow Wave</option>
-                <option value="color">Color Permanent</option>
+                <option value="color">Colour Permanent</option>
                 <option value="foils">Foils & Highlights</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="editServiceDuration">Duration</label>
+              <label class="form-label" for="editServiceDuration">Duration / Time (Optional)</label>
               <input type="text" id="editServiceDuration" class="form-control" placeholder="e.g. 45 mins">
             </div>
           </div>
 
           <div class="form-grid">
             <div class="form-group">
-              <label class="form-label" for="editServicePrice">Current Price</label>
+              <label class="form-label" for="editServicePrice">Price (Optional)</label>
               <input type="text" id="editServicePrice" class="form-control" placeholder="e.g. from A$40.50">
             </div>
 
@@ -713,6 +713,13 @@
           <div class="form-group">
             <label class="form-label" for="editServiceSavings">Savings Tag / Badge (Optional)</label>
             <input type="text" id="editServiceSavings" class="form-control" placeholder="e.g. · Save up to 10%">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.15rem; background: rgba(198, 138, 127, 0.08); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(198, 138, 127, 0.2);">
+            <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; font-size: 0.88rem; color: var(--espresso); font-weight: 500; margin: 0;">
+              <input type="checkbox" id="editServiceFeatured" style="width: 17px; height: 17px; accent-color: var(--dusty-rose);">
+              <span>★ Feature on Homepage Editorial Spread (Category Card)</span>
+            </label>
           </div>
 
           <div class="form-group">
@@ -762,20 +769,20 @@
                 <option value="">— No category —</option>
                 <option value="haircuts">Haircuts</option>
                 <option value="blowwave">Blow Wave</option>
-                <option value="color">Color Permanent</option>
+                <option value="color">Colour Permanent</option>
                 <option value="foils">Foils & Highlights</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="addServiceDuration">Duration</label>
+              <label class="form-label" for="addServiceDuration">Duration / Time (Optional)</label>
               <input type="text" id="addServiceDuration" class="form-control" placeholder="e.g. 30 mins">
             </div>
           </div>
 
           <div class="form-grid">
             <div class="form-group">
-              <label class="form-label" for="addServicePrice">Price</label>
+              <label class="form-label" for="addServicePrice">Price (Optional)</label>
               <input type="text" id="addServicePrice" class="form-control" placeholder="e.g. A$35.00">
             </div>
 
@@ -788,6 +795,13 @@
           <div class="form-group">
             <label class="form-label" for="addServiceSavings">Savings Tag / Badge (Optional)</label>
             <input type="text" id="addServiceSavings" class="form-control" placeholder="e.g. Save 15%">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.15rem; background: rgba(198, 138, 127, 0.08); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(198, 138, 127, 0.2);">
+            <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; font-size: 0.88rem; color: var(--espresso); font-weight: 500; margin: 0;">
+              <input type="checkbox" id="addServiceFeatured" style="width: 17px; height: 17px; accent-color: var(--dusty-rose);">
+              <span>★ Feature on Homepage Editorial Spread (Category Card)</span>
+            </label>
           </div>
 
           <div class="form-group">
@@ -835,7 +849,7 @@
 
             <div class="form-group">
               <label class="form-label" for="editStylistTag">Badge Tag *</label>
-              <input type="text" id="editStylistTag" class="form-control" placeholder="e.g. Lead Color Master" required>
+              <input type="text" id="editStylistTag" class="form-control" placeholder="e.g. Lead Colour Master" required>
             </div>
           </div>
 
@@ -953,7 +967,7 @@
           Are you sure you want to delete <strong id="deleteItemTitle" style="color: #b33939;"></strong>?
         </p>
         <p style="font-size: 0.82rem; color: var(--warm-ash);">
-          This item will be permanently removed from the salon menu and live catalog.
+          This item will be permanently removed from the salon menu and live catalogue.
         </p>
       </div>
       <div class="admin-modal-footer">

@@ -1,7 +1,7 @@
 {
   "hero": {
     "quote": "Discover Salon-Approved Brands for Exceptional Hair. Precision cutting, bespoke colour correction, and peptide molecular restoration.",
-    "title": "Luxury Haircare, Curated for You.",
+    "title": "Where hair becomes art, and craft meets care",
     "rating": "5.0",
     "eyebrow": "Nourish. Restore. Transform",
     "reviewCount": "610+",
@@ -13,7 +13,7 @@
       {
         "id": "ritual-1",
         "name": "The Basin Experience",
-        "image": "images/ritual-wash.jpg",
+        "image": "images/ritual-wash.jpg?v=2",
         "duration": "Detoxing Basin Massage",
         "movement": "First Movement",
         "description": "Lukewarm purified water and botanically derived clarifying cleansers. A methodical detoxing scalp massage stimulates microcirculation while relieving tension in the neck and temples."
@@ -21,7 +21,7 @@
       {
         "id": "ritual-2",
         "name": "Molecular Restoration",
-        "image": "images/ritual-mask.jpg",
+        "image": "images/ritual-mask.jpg?v=2",
         "duration": "Japanese Mask & K18",
         "movement": "Second Movement",
         "description": "Targeted peptide formulations and concentrated Japanese hair masks. K18 bio-mimetic peptides reconnect broken keratin chains, reversing structural damage from bleach and thermal styling."
@@ -29,7 +29,7 @@
       {
         "id": "ritual-3",
         "name": "The Tactile Finish",
-        "image": "images/ritual-finish.jpg",
+        "image": "images/ritual-finish.jpg?v=2",
         "duration": "Bespoke Styling & GHD Finish",
         "movement": "Closing Movement",
         "description": "The closing movement pairs precision blow waving with low-heat ceramic detailing. Using GHD tools and weightless leave-in oils, we create fluid, touchable volume that moves naturally."
@@ -39,7 +39,7 @@
       {
         "id": "stylist-1",
         "bio": "Renowned across Sydney for bespoke dimensional blonding, gentle foil micro-weaving, and corrective shade balance that protects hair density and root health.",
-        "tag": "Lead Color Master",
+        "tag": "Lead Colour Master",
         "name": "Martina",
         "role": "Colour & Balayage Specialist",
         "image": "images/stylist-1.jpg",
@@ -164,37 +164,14 @@
   "services": [
     {
       "id": "srv-1",
-      "name": "Ladies Stylecuts",
-      "image": "images/services/cut-ladies.jpg",
-      "price": "from A$40.501",
-      "savings": "· Save up to 10%0",
-      "category": "haircuts",
-      "duration": "30 mins",
-      "description": "Personalized shape consultation and precision wet-cutting tailored to your hair density and facial profile.",
-      "categoryName": "haircuts",
-      "originalPrice": "A$451"
-    },
-    {
-      "id": "srv-2",
-      "name": "Ladies Cut, Shampoo & Dry Off",
-      "image": "images/services/cut-wash-dry.jpg",
-      "price": "A$59.00",
+      "name": "Precision Stylecut & Re-Shape",
+      "image": "images/service-haircut-client.jpg",
+      "price": "",
       "savings": "",
       "category": "haircuts",
-      "duration": "30 mins",
-      "description": "Clarifying basin wash with botanic shampoo, followed by precision haircut and express dry off.",
-      "categoryName": "haircuts",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-3",
-      "name": "Ladies Stylecut (Long)",
-      "image": "images/services/cut-long.jpg",
-      "price": "A$49.00",
-      "savings": "",
-      "category": "haircuts",
-      "duration": "45 mins",
-      "description": "Dedicated precision cutting and weight removal for long hair lengths to maintain fluid movement and healthy ends.",
+      "duration": "",
+      "featured": true,
+      "description": "Personalised shape consultation and precision wet-cutting tailored to your natural density and bone structure. Includes customised face-framing and effortless movement.",
       "categoryName": "haircuts",
       "originalPrice": ""
     },
@@ -202,311 +179,51 @@
       "id": "srv-4",
       "name": "Stylecut & Blowdry",
       "image": "images/services/cut-blowdry.jpg",
-      "price": "from A$67.50",
-      "savings": "· Save up to 10%",
+      "price": "",
+      "savings": "",
       "category": "haircuts",
-      "duration": "1 hr",
+      "duration": "",
+      "featured": false,
       "description": "Complete signature salon package: bespoke consultation, precision wet-cutting, tailored blow wave, and polished finish.",
-      "categoryName": "haircuts",
-      "originalPrice": "A$75"
-    },
-    {
-      "id": "srv-5",
-      "name": "Senior Women",
-      "image": "images/services/cut-senior-w.jpg",
-      "price": "A$40.00",
-      "savings": "",
-      "category": "haircuts",
-      "duration": "30 mins",
-      "description": "Gentle precision haircut and styling consultation for senior guests at our dedicated concession rate.",
-      "categoryName": "haircuts",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-6",
-      "name": "Senior Men",
-      "image": "images/services/cut-senior-m.jpg",
-      "price": "A$35.00",
-      "savings": "",
-      "category": "haircuts",
-      "duration": "30 mins",
-      "description": "Clean scissor and clipper work for senior gentlemen with neckline trim and eyebrow detailing on request.",
-      "categoryName": "haircuts",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-7",
-      "name": "Mens Stylecut",
-      "image": "images/services/cut-men.jpg",
-      "price": "A$39.00",
-      "savings": "",
-      "category": "haircuts",
-      "duration": "30 mins",
-      "description": "Precision tailored men's haircut, textured shear work, neck taper, and styling with premium matte paste.",
-      "categoryName": "haircuts",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-8",
-      "name": "Boys high school",
-      "image": "images/services/cut-boys.jpg",
-      "price": "A$33.00",
-      "savings": "",
-      "category": "haircuts",
-      "duration": "20 mins",
-      "description": "Modern fade or classic school regulation cut for high school students.",
-      "categoryName": "haircuts",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-9",
-      "name": "Kids under 8 years",
-      "image": "images/services/cut-kids.jpg",
-      "price": "A$31.00",
-      "savings": "",
-      "category": "haircuts",
-      "duration": "30 mins",
-      "description": "Patient, friendly haircut experience for young children under 8 years old.",
-      "categoryName": "haircuts",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-10",
-      "name": "Re-Style Cut",
-      "image": "images/services/cut-restyle.jpg",
-      "price": "A$60.00",
-      "savings": "",
-      "category": "haircuts",
-      "duration": "45 mins",
-      "description": "Comprehensive restyle transformation from long to short or crafting a completely new architectural shape.",
       "categoryName": "haircuts",
       "originalPrice": ""
     },
     {
       "id": "srv-11",
-      "name": "Blowdry",
-      "image": "images/services/blowdry-classic.jpg",
-      "price": "from A$49.50",
-      "savings": "· Save up to 10%",
-      "category": "blowwave",
-      "duration": "45 mins",
-      "description": "Signature blow wave using professional round brushes and ionic heat to produce radiant shine and natural bounce.",
-      "categoryName": "blowwave",
-      "originalPrice": "A$55"
-    },
-    {
-      "id": "srv-12",
-      "name": "Blowdry Short",
-      "image": "images/services/blowdry-short.jpg",
-      "price": "from A$44.10",
-      "savings": "· Save up to 10%",
-      "category": "blowwave",
-      "duration": "45 mins",
-      "description": "Precision blowout tailored for short lengths, adding root lift, sleek control, and polished definition.",
-      "categoryName": "blowwave",
-      "originalPrice": "A$49"
-    },
-    {
-      "id": "srv-13",
-      "name": "Blowdry Long",
-      "image": "images/services/blowdry-long.jpg",
-      "price": "from A$54.00",
-      "savings": "· Save up to 10%",
-      "category": "blowwave",
-      "duration": "1 hr 15 mins",
-      "description": "Extended blowout session for long or thick hair, infusing weightless moisture and silky smooth polish.",
-      "categoryName": "blowwave",
-      "originalPrice": "A$60"
-    },
-    {
-      "id": "srv-14",
-      "name": "Blowdry & GHD curl",
-      "image": "images/services/blowdry-ghd.jpg",
-      "price": "A$60.00",
+      "name": "Signature Blow Wave",
+      "image": "images/service-blowwave-client.jpg",
+      "price": "",
       "savings": "",
       "category": "blowwave",
-      "duration": "1 hr",
-      "description": "Full blow wave followed by GHD thermal styling to craft ribbon curls, textured beach waves, or soft glam waves.",
-      "categoryName": "blowwave",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-15",
-      "name": "Blowdry & Treatment Package deal",
-      "image": "images/services/blowdry-pkg.jpg",
-      "price": "A$129.00",
-      "savings": "",
-      "category": "blowwave",
-      "duration": "1 hr",
-      "description": "Comprehensive hair care deal: restorative basin treatment mask followed by luxury blow wave and finish.",
-      "categoryName": "blowwave",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-16",
-      "name": "Blowdry & Treatment",
-      "image": "images/services/blowdry-treatment.jpg",
-      "price": "from A$67.50",
-      "savings": "· Save up to 10%",
-      "category": "blowwave",
-      "duration": "1 hr 30 mins",
-      "description": "Deep conditioning basin therapy combined with an extended luxury blow wave for smooth cuticle hydration.",
-      "categoryName": "blowwave",
-      "originalPrice": "A$75"
-    },
-    {
-      "id": "srv-17",
-      "name": "Extension Blowdry",
-      "image": "images/services/blowdry-extension.jpg",
-      "price": "A$65.00",
-      "savings": "",
-      "category": "blowwave",
-      "duration": "1 hr 30 mins",
-      "description": "Specialist washing, root drying, and tension-free blow wave designed specifically to protect and blend hair extensions.",
+      "duration": "",
+      "featured": true,
+      "description": "Expert consultation, clarifying cleanse, bespoke round-brush blow dry.",
       "categoryName": "blowwave",
       "originalPrice": ""
     },
     {
       "id": "srv-18",
-      "name": "Root touch (Regrowth)",
-      "image": "images/services/color-root.jpg",
-      "price": "from A$63.90",
-      "savings": "· Save up to 10%",
-      "category": "color",
-      "duration": "45 mins",
-      "description": "Targeted regrowth tint application providing 100% seamless grey coverage or natural root blend up to 2cm.",
-      "categoryName": "color",
-      "originalPrice": "A$71"
-    },
-    {
-      "id": "srv-19",
-      "name": "Root touch (Regrowth) & Medium length Blowout",
-      "image": "images/services/color-root-blowout.jpg",
-      "price": "from A$126.00",
+      "name": "Permanent Colour & Roots",
+      "image": "images/service-color-client.jpg",
+      "price": "",
       "savings": "",
       "category": "color",
-      "duration": "1 hr",
-      "description": "Regrowth touch-up paired with our signature medium-length round brush blow wave for complete styling.",
-      "categoryName": "color",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-20",
-      "name": "Regrowth & Express Dry Off",
-      "image": "images/services/color-regrowth-express.jpg",
-      "price": "A$85.00",
-      "savings": "",
-      "category": "color",
-      "duration": "1 hr",
-      "description": "Root color coverage followed by a purifying shampoo and quick express dry off.",
-      "categoryName": "color",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-21",
-      "name": "Ammonia free Color Regrowth",
-      "image": "images/services/color-ammonia-free.jpg",
-      "price": "A$89.00",
-      "savings": "",
-      "category": "color",
-      "duration": "30 mins",
-      "description": "Ultra-gentle, odor-free oil delivery system providing permanent grey coverage without scalp irritation.",
-      "categoryName": "color",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-22",
-      "name": "Men's Tint & Cut",
-      "image": "images/services/color-men.jpg",
-      "price": "A$74.00",
-      "savings": "",
-      "category": "color",
-      "duration": "45 mins",
-      "description": "Natural grey camouflage or all-over tone adjustment paired with a tailored precision men's stylecut.",
-      "categoryName": "color",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-23",
-      "name": "Semi",
-      "image": "images/services/color-semi.jpg",
-      "price": "A$75.00",
-      "savings": "",
-      "category": "color",
-      "duration": "30 mins",
-      "description": "Semi-permanent rich color gloss that enhances natural highlights and provides brilliant shine without line of demarcation.",
-      "categoryName": "color",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-24",
-      "name": "Tint Short Hair",
-      "image": "images/services/color-tint-short.jpg",
-      "price": "A$95.00",
-      "savings": "",
-      "category": "color",
-      "duration": "1 hr",
-      "description": "All-over permanent global color application from roots to ends designed for short hair lengths.",
-      "categoryName": "color",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-25",
-      "name": "Tint Full Head Long Hair",
-      "image": "images/services/color-tint-long.jpg",
-      "price": "A$120.00",
-      "savings": "",
-      "category": "color",
-      "duration": "1 hr 30 mins",
-      "description": "Full global coverage and intensive tone saturation across long hair lengths for multidimensional richness.",
+      "duration": "",
+      "featured": true,
+      "description": "Seamless grey blending, bespoke rich permanent tint, and gloss tone refresh.",
       "categoryName": "color",
       "originalPrice": ""
     },
     {
       "id": "srv-26",
-      "name": "1/2 Head Short",
-      "image": "images/services/foil-half-short.jpg",
-      "price": "A$150.00",
+      "name": "Dimensional Foils & Balayage",
+      "image": "images/service-foils-client.jpg",
+      "price": "",
       "savings": "",
       "category": "foils",
-      "duration": "1 hr 15 mins",
-      "description": "Dimensional micro-weave foil placement across the crown and hairline tailored for short lengths.",
-      "categoryName": "foils",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-27",
-      "name": "1/2 Head Long Hair",
-      "image": "images/services/foil-half-long.jpg",
-      "price": "A$180.00",
-      "savings": "",
-      "category": "foils",
-      "duration": "1 hr 30 mins",
-      "description": "Half head foil lightening for long hair creating blended, light-catching brightness through top and sides.",
-      "categoryName": "foils",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-28",
-      "name": "T-Section",
-      "image": "images/services/foil-t-section.jpg",
-      "price": "A$80.00",
-      "savings": "",
-      "category": "foils",
-      "duration": "1 hr 30 mins",
-      "description": "Foil placement precisely along your part line and front hairline for quick maintenance between full appointments.",
-      "categoryName": "foils",
-      "originalPrice": ""
-    },
-    {
-      "id": "srv-29",
-      "name": "Toner",
-      "image": "images/services/foil-toner.jpg",
-      "price": "A$55.00",
-      "savings": "",
-      "category": "foils",
-      "duration": "45 mins",
-      "description": "Custom acidic gloss toner to neutralize yellow or brassy tones, seal the cuticle, and restore luminous shade depth.",
+      "duration": "",
+      "featured": true,
+      "description": "Micro-fine highlight placement, luminous brightening, and custom gloss toner.",
       "categoryName": "foils",
       "originalPrice": ""
     }
@@ -519,6 +236,22 @@
       "phone": "0412 345 678",
       "message": "Looking for a bespoke balayage consultation next Thursday.",
       "created_at": "2026-09-16T07:38:54.664Z"
+    },
+    {
+      "id": "inq-1790832601759",
+      "name": "",
+      "email": "test@example.com",
+      "phone": "",
+      "message": "Hello salon",
+      "created_at": "2026-10-01T05:30:01.759Z"
+    },
+    {
+      "id": "inq-1790846693137",
+      "name": "QA Test Client",
+      "email": "qa.client@example.com.au",
+      "phone": "0412345678",
+      "message": "Automated QA verification message",
+      "created_at": "2026-10-01T09:24:53.137Z"
     }
   ],
   "categories": [
@@ -532,13 +265,19 @@
     },
     {
       "id": "color",
-      "title": "Color Permanent"
+      "title": "Colour Permanent"
     },
     {
       "id": "foils",
       "title": "Foils"
     }
   ],
+  "announcement": {
+    "enabled": false,
+    "text": "",
+    "badge": "",
+    "link": "https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895"
+  },
   "featuredHero": {
     "tag": "Salon Favourite",
     "image": "images/service-keratin.jpg",
@@ -626,7 +365,7 @@
       "id": "review-7",
       "date": "Google Verified",
       "link": "https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,,",
-      "text": "Best salon in Hurstville by far! From the moment you walk in, the team makes you feel comfortable and pampered. My color turned out absolutely stunning and the blowdry lasted for days. Such talented and friendly professionals.",
+      "text": "Best salon in Hurstville by far! From the moment you walk in, the team makes you feel comfortable and pampered. My colour turned out absolutely stunning and the blowdry lasted for days. Such talented and friendly professionals.",
       "badge": "Verified Client · Balayage & Colour",
       "author": "Sanishha Sanishahaha",
       "avatar": "",
@@ -672,22 +411,15 @@
     }
   ],
   "googleReviewsUrl": "https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,1,,,,",
-  "googleWriteReviewUrl": "https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,3,,,,",
-  "announcement": {
-    "enabled": false,
-    "text": "",
-    "badge": "",
-    "link": "https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895",
-    "button_text": "Book Now →"
-  },
   "promotional_offer": {
-    "enabled": false,
-    "image": "",
-    "eyebrow": "",
-    "title": "",
-    "description": "",
     "badge": "",
+    "image": "",
+    "title": "",
+    "enabled": false,
+    "eyebrow": "",
+    "button_url": "https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895",
     "button_text": "Book Now →",
-    "button_url": "https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895"
-  }
+    "description": ""
+  },
+  "googleWriteReviewUrl": "https://www.google.com/search?q=hairvalley#lrd=0x6b12b9bd54b2f7d5:0x43db3c39bbc456b0,3,,,,"
 }

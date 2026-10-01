@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services & Pricing — Hair Valley Hurstville</title>
-  <meta name="description" content="Official salon pricing for precision haircuts, blow wave, permanent color, foils, keratin treatments, nanoplasty, and extensions in Hurstville NSW.">
+  <meta name="description" content="Official salon pricing for precision haircuts, blow wave, permanent colour, foils, keratin treatments, nanoplasty, and extensions in Hurstville NSW.">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/typography.css">
@@ -65,58 +65,22 @@
       <div class="container-narrow" style="text-align: center;">
         <span class="eyebrow eyebrow--rose">Salon Pricing Report</span>
         <h1 class="display-section" style="margin-top: 0.35rem; font-size: clamp(2rem, 3.5vw, 3rem);">
-          Every service, plainly priced.
+          Every service, beautifully crafted.
         </h1>
         <p class="body-lead" style="margin-inline: auto; margin-top: 0.75rem;">
-          Official salon menu for our Hurstville atelier. Transparent starting prices, real durations, and online savings applied directly.
+          Official salon menu for our Hurstville atelier. Bespoke consultations, tailored styling, and instant online confirmation.
         </p>
       </div>
     </section>
 
-    <!-- Sticky Category Filter Bar -->
-    <nav class="filter-bar-wrap" aria-label="Service Category Navigation">
-      <div class="container filter-bar-container">
-        <button type="button" class="filter-scroll-btn filter-scroll-btn--prev" id="btnFilterPrev" aria-label="Scroll categories left" title="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-        </button>
-        <div class="filter-bar-inner" id="filterBarInner">
-          <button class="pill-filter is-active" data-target="all">All Services</button>
-          <button class="pill-filter" data-target="haircuts">Haircuts</button>
-          <button class="pill-filter" data-target="blowwave">Blow Wave</button>
-          <button class="pill-filter" data-target="color">Color Permanent</button>
-          <button class="pill-filter" data-target="foils">Foils</button>
-        </div>
-        <button type="button" class="filter-scroll-btn filter-scroll-btn--next" id="btnFilterNext" aria-label="Scroll categories right" title="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m9 18 6-6-6-6"/>
-          </svg>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Active Filter Status Bar -->
-    <div class="filter-status-bar" id="filterStatusBar" style="display: none;">
-      <div class="container filter-status-inner">
-        <span class="filter-status-text">Showing: <strong id="filterStatusLabel"></strong></span>
-        <button type="button" id="btnClearFilter" class="filter-clear-btn">View All Services</button>
-      </div>
-    </div>
-
-    <!-- Main Catalog Container -->
+    <!-- Main Catalogue Container -->
     <div class="container" style="display: flex; flex-direction: column; gap: clamp(3rem, 6vw, 5rem);">
 
       <!-- ====================================================================
-           1. Haircuts (10 Services)
+           Signature Services (5 Services)
            ==================================================================== -->
-      <section id="haircuts" class="service-category-section">
-        <div style="margin-bottom: 1.5rem;">
-          <span class="eyebrow eyebrow--rose">Category 01</span>
-          <h2 class="heading-card" style="font-size: 1.65rem; margin-top: 0.2rem;">Haircuts</h2>
-        </div>
-
-        <div class="services-catalog-grid">
+      <section id="services">
+        <div class="services-catalog-grid" id="servicesGrid">
           <!-- Ladies Stylecut -->
           <div class="glass-card--light">
             <div class="service-card-thumb">
@@ -125,65 +89,13 @@
             <div class="service-card-body">
               <div class="service-card-header">
                 <h3 class="heading-card">Ladies Stylecut</h3>
-                <span class="price-val">from A$40.50</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="price-original">A$45</span>
-                <span class="price-savings">· Save up to 10%</span>
-                <span class="meta-duration">30 mins</span>
               </div>
               <p class="body-sm" style="margin-top: 0.5rem;">
-                Personalized shape consultation and precision wet-cutting tailored to your hair density and facial profile.
+                Personalised shape consultation and precision wet-cutting tailored to your hair density and facial profile.
               </p>
             </div>
             <div class="service-card-footer">
               <span class="caption">Precision cut</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Ladies Cut, Shampoo & Dry Off -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/cut-wash-dry.jpg" alt="Ladies Cut, Shampoo & Dry Off" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Ladies Cut, Shampoo & Dry Off</h3>
-                <span class="price-val">A$59.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Clarifying basin wash with botanic shampoo, followed by precision haircut and express dry off.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Includes basin wash</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Ladies Stylecut (Long) -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/cut-long.jpg" alt="Ladies Stylecut Long" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Ladies Stylecut (Long)</h3>
-                <span class="price-val">A$49.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">45 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Dedicated precision cutting and weight removal for long hair lengths to maintain fluid movement and healthy ends.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">For long lengths</span>
               <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
             </div>
           </div>
@@ -196,12 +108,6 @@
             <div class="service-card-body">
               <div class="service-card-header">
                 <h3 class="heading-card">Stylecut & Blowdry</h3>
-                <span class="price-val">from A$67.50</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="price-original">A$75</span>
-                <span class="price-savings">· Save up to 10%</span>
-                <span class="meta-duration">1 hr</span>
               </div>
               <p class="body-sm" style="margin-top: 0.5rem;">
                 Complete signature salon package: bespoke consultation, precision wet-cutting, tailored blow wave, and polished finish.
@@ -213,159 +119,6 @@
             </div>
           </div>
 
-          <!-- Senior Women -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/cut-senior-w.jpg" alt="Senior Women Cut" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Senior Women</h3>
-                <span class="price-val">A$40.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Gentle precision haircut and styling consultation for senior guests at our dedicated concession rate.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Senior rate</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Senior Men -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/cut-senior-m.jpg" alt="Senior Men Cut" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Senior Men</h3>
-                <span class="price-val">A$35.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Clean scissor and clipper work for senior gentlemen with neckline trim and eyebrow detailing on request.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Senior rate</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Mens Stylecut -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/cut-men.jpg" alt="Mens Stylecut" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Mens Stylecut</h3>
-                <span class="price-val">A$39.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Precision tailored men's haircut, textured shear work, neck taper, and styling with premium matte paste.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Includes neck taper</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Boys high school -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/cut-boys.jpg" alt="Boys high school cut" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Boys high school</h3>
-                <span class="price-val">A$33.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">20 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Modern fade or classic school regulation cut for high school students.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">High school student rate</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Kids under 8 years -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/cut-kids.jpg" alt="Kids under 8 years" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Kids under 8 years</h3>
-                <span class="price-val">A$31.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Patient, friendly haircut experience for young children under 8 years old.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Under 8 years</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Re-Style Cut -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/cut-restyle.jpg" alt="Re-Style Cut" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Re-Style Cut</h3>
-                <span class="price-val">A$60.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">45 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Comprehensive restyle transformation from long to short or crafting a completely new architectural shape.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Transformation cut</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           2. Blow Wave (7 Services)
-           ==================================================================== -->
-      <section id="blowwave" class="service-category-section">
-        <div style="margin-bottom: 1.5rem;">
-          <span class="eyebrow eyebrow--rose">Category 02</span>
-          <h2 class="heading-card" style="font-size: 1.65rem; margin-top: 0.2rem;">Blow Wave</h2>
-          <p class="body-sm" style="margin-top: 0.35rem;">
-            Discover the transformative art of Blow Wave, where skilled stylists create beautifully voluminous waves that enhance natural shine.
-          </p>
-        </div>
-
-        <div class="services-catalog-grid">
           <!-- Blowdry -->
           <div class="glass-card--light">
             <div class="service-card-thumb">
@@ -374,182 +127,17 @@
             <div class="service-card-body">
               <div class="service-card-header">
                 <h3 class="heading-card">Blowdry</h3>
-                <span class="price-val">from A$49.50</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="price-original">A$55</span>
-                <span class="price-savings">· Save up to 10%</span>
-                <span class="meta-duration">45 mins</span>
               </div>
               <p class="body-sm" style="margin-top: 0.5rem;">
                 Signature blow wave using professional round brushes and ionic heat to produce radiant shine and natural bounce.
               </p>
             </div>
             <div class="service-card-footer">
-              <span class="caption">Featured save 10%</span>
+              <span class="caption">Tailored styling</span>
               <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
             </div>
           </div>
 
-          <!-- Blowdry Short -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/blowdry-short.jpg" alt="Blowdry Short" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Blowdry Short</h3>
-                <span class="price-val">from A$44.10</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="price-original">A$49</span>
-                <span class="price-savings">· Save up to 10%</span>
-                <span class="meta-duration">45 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Precision blowout tailored for short lengths, adding root lift, sleek control, and polished definition.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Short lengths</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Blowdry Long -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/blowdry-long.jpg" alt="Blowdry Long" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Blowdry Long</h3>
-                <span class="price-val">from A$54.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="price-original">A$60</span>
-                <span class="price-savings">· Save up to 10%</span>
-                <span class="meta-duration">1 hr 15 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Extended blowout session for long or thick hair, infusing weightless moisture and silky smooth polish.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Long lengths</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Blowdry & GHD curl -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/blowdry-ghd.jpg" alt="Blowdry & GHD curl" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Blowdry & GHD curl</h3>
-                <span class="price-val">A$60.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Full blow wave followed by GHD thermal styling to craft ribbon curls, textured beach waves, or soft glam waves.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Thermal GHD finish</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Blowdry & Treatment Package deal -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/blowdry-pkg.jpg" alt="Blowdry & Treatment Package deal" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Blowdry & Treatment Package deal</h3>
-                <span class="price-val">A$129.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Comprehensive hair care deal: restorative basin treatment mask followed by luxury blow wave and finish.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Package deal</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Blowdry & Treatment -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/blowdry-treatment.jpg" alt="Blowdry & Treatment" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Blowdry & Treatment</h3>
-                <span class="price-val">from A$67.50</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="price-original">A$75</span>
-                <span class="price-savings">· Save up to 10%</span>
-                <span class="meta-duration">1 hr 30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Deep conditioning basin therapy combined with an extended luxury blow wave for smooth cuticle hydration.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Save up to 10%</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Extension Blowdry -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/blowdry-extension.jpg" alt="Extension Blowdry" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Extension Blowdry</h3>
-                <span class="price-val">A$65.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr 30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Specialist washing, root drying, and tension-free blow wave designed specifically to protect and blend hair extensions.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Extension care</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           3. Color Permanent (8 Services)
-           ==================================================================== -->
-      <section id="color" class="service-category-section">
-        <div style="margin-bottom: 1.5rem;">
-          <span class="eyebrow eyebrow--rose">Category 03</span>
-          <h2 class="heading-card" style="font-size: 1.65rem; margin-top: 0.2rem;">Color Permanent</h2>
-          <p class="body-sm" style="margin-top: 0.35rem;">
-            Discover a vibrant selection of color services designed to enhance and transform your hair.
-          </p>
-        </div>
-
-        <div class="services-catalog-grid">
           <!-- Root touch (Regrowth) -->
           <div class="glass-card--light">
             <div class="service-card-thumb">
@@ -558,199 +146,17 @@
             <div class="service-card-body">
               <div class="service-card-header">
                 <h3 class="heading-card">Root touch (Regrowth)</h3>
-                <span class="price-val">from A$63.90</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="price-original">A$71</span>
-                <span class="price-savings">· Save up to 10%</span>
-                <span class="meta-duration">45 mins</span>
               </div>
               <p class="body-sm" style="margin-top: 0.5rem;">
                 Targeted regrowth tint application providing 100% seamless grey coverage or natural root blend up to 2cm.
               </p>
             </div>
             <div class="service-card-footer">
-              <span class="caption">Featured save 10%</span>
+              <span class="caption">Seamless blend</span>
               <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
             </div>
           </div>
 
-          <!-- Root touch (Regrowth) & Medium length Blowout -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/color-root-blowout.jpg" alt="Root touch & Blowout" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Root touch (Regrowth) & Medium length Blowout</h3>
-                <span class="price-val">from A$126.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Regrowth touch-up paired with our signature medium-length round brush blow wave for complete styling.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Includes blowout</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Regrowth & Express Dry Off -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/color-regrowth-express.jpg" alt="Regrowth & Express Dry Off" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Regrowth & Express Dry Off</h3>
-                <span class="price-val">A$85.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Root color coverage followed by a purifying shampoo and quick express dry off.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Express service</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Ammonia free Color Regrowth -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/color-ammonia-free.jpg" alt="Ammonia free Color Regrowth" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Ammonia free Color Regrowth</h3>
-                <span class="price-val">A$89.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Ultra-gentle, odor-free oil delivery system providing permanent grey coverage without scalp irritation.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Ammonia-free</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Men's Tint & Cut -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/color-men.jpg" alt="Men's Tint & Cut" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Men's Tint & Cut</h3>
-                <span class="price-val">A$74.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">45 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Natural grey camouflage or all-over tone adjustment paired with a tailored precision men's stylecut.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Color & Cut combo</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Semi -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/color-semi.jpg" alt="Semi Permanent Color" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Semi</h3>
-                <span class="price-val">A$75.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Semi-permanent rich color gloss that enhances natural highlights and provides brilliant shine without line of demarcation.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">High shine gloss</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Tint Short Hair -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/color-tint-short.jpg" alt="Tint Short Hair" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Tint Short Hair</h3>
-                <span class="price-val">A$95.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                All-over permanent global color application from roots to ends designed for short hair lengths.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Short hair global</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Tint Full Head Long Hair -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/color-tint-long.jpg" alt="Tint Full Head Long Hair" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Tint Full Head Long Hair</h3>
-                <span class="price-val">A$120.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr 30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Full global coverage and intensive tone saturation across long hair lengths for multidimensional richness.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Long hair global</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           4. Foils (4 Services)
-           ==================================================================== -->
-      <section id="foils" class="service-category-section">
-        <div style="margin-bottom: 1.5rem;">
-          <span class="eyebrow eyebrow--rose">Category 04</span>
-          <h2 class="heading-card" style="font-size: 1.65rem; margin-top: 0.2rem;">Foils</h2>
-          <p class="body-sm" style="margin-top: 0.35rem;">
-            Discover a range of hair foils that elevate your look and enhance your hair's natural beauty — providing dimension and brightness.
-          </p>
-        </div>
-
-        <div class="services-catalog-grid">
           <!-- 1/2 Head Short -->
           <div class="glass-card--light">
             <div class="service-card-thumb">
@@ -759,10 +165,6 @@
             <div class="service-card-body">
               <div class="service-card-header">
                 <h3 class="heading-card">1/2 Head Short</h3>
-                <span class="price-val">A$150.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr 15 mins</span>
               </div>
               <p class="body-sm" style="margin-top: 0.5rem;">
                 Dimensional micro-weave foil placement across the crown and hairline tailored for short lengths.
@@ -770,75 +172,6 @@
             </div>
             <div class="service-card-footer">
               <span class="caption">Short hair foils</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- 1/2 Head Long Hair -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/foil-half-long.jpg" alt="1/2 Head Long Hair Foils" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">1/2 Head Long Hair</h3>
-                <span class="price-val">A$180.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr 30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Half head foil lightening for long hair creating blended, light-catching brightness through top and sides.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Long hair foils</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- T-Section -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/foil-t-section.jpg" alt="T-Section Foils" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">T-Section</h3>
-                <span class="price-val">A$80.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">1 hr 30 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Foil placement precisely along your part line and front hairline for quick maintenance between full appointments.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Partline refresh</span>
-              <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-            </div>
-          </div>
-
-          <!-- Toner -->
-          <div class="glass-card--light">
-            <div class="service-card-thumb">
-              <img src="images/services/foil-toner.jpg" alt="Toner" loading="lazy">
-            </div>
-            <div class="service-card-body">
-              <div class="service-card-header">
-                <h3 class="heading-card">Toner</h3>
-                <span class="price-val">A$55.00</span>
-              </div>
-              <div style="margin-top: -0.25rem;">
-                <span class="meta-duration" style="margin-left: 0;">45 mins</span>
-              </div>
-              <p class="body-sm" style="margin-top: 0.5rem;">
-                Custom acidic gloss toner to neutralize yellow or brassy tones, seal the cuticle, and restore luminous shade depth.
-              </p>
-            </div>
-            <div class="service-card-footer">
-              <span class="caption">Brass correction</span>
               <a href="https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
             </div>
           </div>
@@ -857,7 +190,7 @@
               <span class="caption" style="color: var(--dusty-rose); font-weight: 500;">Transparent & Clear</span>
             </div>
             <h2 class="heading-card" style="font-size: 1.45rem;">
-              Booking terms, deposits, and special promotions.
+              Booking terms and promotional rates
             </h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
               <div>
@@ -870,12 +203,6 @@
                 <h3 class="body-text" style="font-weight: 500; color: var(--espresso); margin-bottom: 0.35rem;">Sunday First-Timer Term</h3>
                 <p class="body-sm">
                   Our Sunday A$89.10 Colour Special is reserved for first-time Hair Valley guests. Hair length falling past shoulder level carries a transparent A$20 surcharge.
-                </p>
-              </div>
-              <div>
-                <h3 class="body-text" style="font-weight: 500; color: var(--espresso); margin-bottom: 0.35rem;">Booking Deposit</h3>
-                <p class="body-sm" data-field="booking-deposit">
-                  A$50 deposit secures online bookings. Refundable up to 24h prior.
                 </p>
               </div>
             </div>

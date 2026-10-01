@@ -18,75 +18,6 @@
 })();
 
 
-const ALLOWED_SERVICE_CATEGORIES = ['haircuts', 'blowwave', 'color', 'foils'];
-
-function switchServiceCategory(targetId, activeBtn) {
-  const pills = document.querySelectorAll('.pill-filter');
-  pills.forEach(p => p.classList.remove('is-active'));
-  if (activeBtn) {
-    activeBtn.classList.add('is-active');
-    activeBtn.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
-  }
-
-  const sections = document.querySelectorAll('.service-category-section');
-  const statusBar = document.getElementById('filterStatusBar');
-  const statusLabel = document.getElementById('filterStatusLabel');
-
-  if (targetId === 'all') {
-    // Show only the 4 allowed categories: Haircuts, Blow Wave, Color Permanent, Foils
-    sections.forEach(sec => {
-      const id = sec.getAttribute('id');
-      if (ALLOWED_SERVICE_CATEGORIES.includes(id)) {
-        sec.style.display = '';
-      } else {
-        sec.style.display = 'none';
-      }
-    });
-    if (statusBar) statusBar.style.display = 'none';
-  } else {
-    // Show ONLY the selected category; hide all others
-    sections.forEach(sec => {
-      const id = sec.getAttribute('id');
-      sec.style.display = (id === targetId) ? '' : 'none';
-    });
-    if (statusBar && statusLabel && activeBtn) {
-      statusLabel.textContent = activeBtn.textContent.trim();
-      statusBar.style.display = '';
-    }
-  }
-
-  // Smoothly scroll to catalog top
-  const filterBar = document.querySelector('.filter-bar-wrap');
-  if (filterBar) {
-    const headerOffset = 90;
-    const elementPosition = filterBar.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    window.scrollTo({
-      top: Math.max(0, offsetPosition),
-      behavior: 'smooth'
-    });
-  }
-}
-
-// Immediate Click Delegation for category buttons
-(function setupImmediatePillDelegation() {
-  document.addEventListener('click', (e) => {
-    const pill = e.target.closest('.pill-filter');
-    if (pill) {
-      e.preventDefault();
-      const targetId = pill.getAttribute('data-target');
-      if (targetId) switchServiceCategory(targetId, pill);
-      return;
-    }
-    const clearBtn = e.target.closest('#btnClearFilter');
-    if (clearBtn) {
-      e.preventDefault();
-      const allPill = document.querySelector('.pill-filter[data-target="all"]');
-      if (allPill) switchServiceCategory('all', allPill);
-    }
-  }, { capture: true });
-})();
-
 /**
  * Hair Valley — Interactive Orchestration
  * Follows the design blueprint: motion is spent once on the hero load,
@@ -95,57 +26,13 @@ function switchServiceCategory(targetId, activeBtn) {
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeroEntrance();
-  initHairBreezeAnimation();
   initStickyHeader();
   initMobileMenu();
-  initCategoryPills();
   initNewsletterForm();
   initReviewsSlider();
   initContactForm();
   hydrateLiveContent();
 });
-
-/**
- * Hair Breeze Animation:
- * Smoothly oscillates SVG turbulence frequency to create an organic,
- * living hair sway motion like a gentle breeze across dark hair waves.
- */
-function initHairBreezeAnimation() {
-  const turbulence = document.getElementById('hairTurbulence');
-  if (!turbulence) return;
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  let start = performance.now();
-  let lastUpdate = 0;
-  let isVisible = true;
-
-  if ('IntersectionObserver' in window) {
-    const heroObs = new IntersectionObserver((entries) => {
-      isVisible = entries[0].isIntersecting;
-    }, { threshold: 0.05 });
-    const hero = document.querySelector('.hero-cinematic-stage') || turbulence.closest('svg');
-    if (hero) heroObs.observe(hero);
-  }
-
-  function animateHair(time) {
-    if (!isVisible) {
-      requestAnimationFrame(animateHair);
-      return;
-    }
-    // Throttle attribute updates to ~25fps to keep main thread completely free for instant button input
-    if (time - lastUpdate > 40) {
-      lastUpdate = time;
-      const elapsed = (time - start) / 1000;
-      const baseFreqX = 0.012 + Math.sin(elapsed * 0.85) * 0.0035;
-      const baseFreqY = 0.016 + Math.cos(elapsed * 0.65) * 0.004;
-      turbulence.setAttribute('baseFrequency', `${baseFreqX.toFixed(4)} ${baseFreqY.toFixed(4)}`);
-    }
-    requestAnimationFrame(animateHair);
-  }
-  requestAnimationFrame(animateHair);
-}
 
 /**
  * 1. Hero Entrance Animation:
@@ -234,79 +121,7 @@ function initMobileMenu() {
 }
 
 /**
- * 4. Services Page Category Pills Navigation & Filter
- */
-function initCategoryPills() {
-  const filterPills = document.querySelectorAll('.pill-filter');
-  const categorySections = document.querySelectorAll('.service-category-section');
-  const filterBar = document.querySelector('.filter-bar-wrap');
-  if (!filterPills.length) return;
-
-  let currentFilter = 'all';
-
-  function scrollToCatalogTop() {
-    if (filterBar) {
-      const headerOffset = 80;
-      const elementPosition = filterBar.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: 'smooth'
-      });
-    }
-  }
-
-  const filterBarInner = document.getElementById('filterBarInner') || document.querySelector('.filter-bar-inner');
-  const btnFilterPrev = document.getElementById('btnFilterPrev');
-  const btnFilterNext = document.getElementById('btnFilterNext');
-
-  const filterStatusBar = document.getElementById('filterStatusBar');
-  const filterStatusLabel = document.getElementById('filterStatusLabel');
-  const btnClearFilter = document.getElementById('btnClearFilter');
-
-  // Arrow buttons scrolling for category pill track
-  if (filterBarInner && btnFilterPrev && btnFilterNext) {
-    const scrollStep = 240;
-
-    btnFilterPrev.addEventListener('click', () => {
-      filterBarInner.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-    });
-
-    btnFilterNext.addEventListener('click', () => {
-      filterBarInner.scrollBy({ left: scrollStep, behavior: 'smooth' });
-    });
-
-    function updateArrowState() {
-      const maxScroll = filterBarInner.scrollWidth - filterBarInner.clientWidth;
-      if (maxScroll <= 5) {
-        btnFilterPrev.style.display = 'none';
-        btnFilterNext.style.display = 'none';
-        return;
-      }
-      btnFilterPrev.style.display = 'flex';
-      btnFilterNext.style.display = 'flex';
-      btnFilterPrev.disabled = filterBarInner.scrollLeft <= 4;
-      btnFilterNext.disabled = filterBarInner.scrollLeft >= maxScroll - 4;
-    }
-
-    filterBarInner.addEventListener('scroll', updateArrowState, { passive: true });
-    window.addEventListener('resize', updateArrowState);
-    setTimeout(updateArrowState, 150);
-  }
-
-  // Handle URL hash on initial load (e.g. services.html#blowwave)
-  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
-  if (ALLOWED_SERVICE_CATEGORIES.includes(hash)) {
-    const targetPill = document.querySelector(`.pill-filter[data-target="${hash}"]`);
-    if (targetPill) switchServiceCategory(hash, targetPill);
-  } else {
-    // Default: show all 4 allowed categories
-    switchServiceCategory('all', document.querySelector('.pill-filter[data-target="all"]'));
-  }
-}
-
-/**
- * 5. Newsletter visual submission confirmation
+ * 4. Newsletter visual submission confirmation
  */
 function initNewsletterForm() {
   const forms = document.querySelectorAll('.glass-newsletter-form');
@@ -329,7 +144,7 @@ function initNewsletterForm() {
 }
 
 /**
- * 6. Dynamic Live Content Hydration (Synchronized with Admin CMS)
+ * 5. Dynamic Live Content Hydration (Synchronized with Admin CMS)
  */
 async function hydrateLiveContent() {
   try {
@@ -352,7 +167,7 @@ async function hydrateLiveContent() {
     if (document.querySelector('.hero-cinematic-stage')) {
       if (data.hero) {
         if (data.hero.backgroundImage) {
-          document.querySelectorAll('.hero-layer-base img, .hair-motion-filtered').forEach(img => {
+          document.querySelectorAll('.hero-layer-base img').forEach(img => {
             img.src = data.hero.backgroundImage;
           });
         }
@@ -406,8 +221,13 @@ async function hydrateLiveContent() {
       }
     }
 
+    // 1b. Homepage Featured Services Spread Hydration
+    if (document.querySelector('.editorial-featured-spread') && Array.isArray(data.services)) {
+      hydrateFeaturedServices(data.services, bookingUrl);
+    }
+
     // 2. Services Page Hydration
-    if (document.querySelector('.services-catalog-grid') && Array.isArray(data.services)) {
+    if (document.getElementById('servicesGrid') && Array.isArray(data.services)) {
       hydrateServicesPage(data.services, bookingUrl);
     }
 
@@ -450,7 +270,7 @@ function esc(str) {
 }
 
 /**
- * 6a. About Page Hydration (Admin "Stylists & Rituals" tab)
+ * 5a. About Page Hydration (Admin "Stylists & Rituals" tab)
  * Renders data.about.rituals into the ritual timeline nodes and
  * data.about.stylists into the magazine spread (lead + companions).
  */
@@ -527,7 +347,7 @@ function hydrateAboutPage(about) {
 }
 
 /**
- * 6b. Salon Location & Trading Hours Hydration (Admin "Contact & Hours" tab)
+ * 5b. Salon Location & Trading Hours Hydration (Admin "Contact & Hours" tab)
  * Elements tagged with data-field attributes are populated from
  * contact.hurstville / contact.hours managed in the admin panel.
  */
@@ -627,7 +447,7 @@ function hydrateLocationInfo(contact, branches) {
 }
 
 /**
- * 7. Google Reviews Slider Navigation
+ * 6. Google Reviews Slider Navigation
  */
 function initReviewsSlider() {
   const track = document.getElementById('reviewsTrack');
@@ -697,64 +517,167 @@ function hydrateReviewsTrack(track, reviews, fallbackUrl) {
   }).join('');
 }
 
-function hydrateServicesPage(services, bookingUrl = 'https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895') {
-  const allowed = ['haircuts', 'blowwave', 'color', 'foils'];
-  const categories = {};
-  
-  (services || []).forEach(s => {
-    const cat = (s.category || '').toLowerCase().trim();
-    if (allowed.includes(cat)) {
-      if (!categories[cat]) categories[cat] = [];
-      categories[cat].push(s);
+/**
+ * 6b. Homepage Featured Services Spread Hydration
+ * Synchronizes the 4 editorial feature cards on index.html with Admin CMS
+ */
+function hydrateFeaturedServices(services, bookingUrl = 'https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895') {
+  const spread = document.querySelector('.editorial-featured-spread');
+  if (!spread || !Array.isArray(services) || !services.length) return;
+
+  const bUrl = bookingUrl || 'https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895';
+
+  // 1. Hero Card: Category 01 · Haircuts
+  const heroCard = spread.querySelector('.featured-hero-card') || spread.querySelector('[data-featured-cat="haircuts"]');
+  const haircutService = services.find(s => s.category === 'haircuts' && s.featured) ||
+                         services.find(s => s.category === 'haircuts') ||
+                         services.find(s => s.id === 'srv-1');
+
+  if (heroCard && haircutService) {
+    const img = heroCard.querySelector('.card-img-thumb img');
+    if (img && haircutService.image) {
+      img.src = haircutService.image;
+      img.alt = haircutService.name || 'Featured Haircut Service';
     }
-  });
-
-  document.querySelectorAll('.service-category-section').forEach(section => {
-    const secId = section.getAttribute('id');
-    if (!allowed.includes(secId)) {
-      section.style.display = 'none';
-      return;
+    const title = heroCard.querySelector('.heading-card');
+    if (title && haircutService.name) {
+      title.textContent = haircutService.name;
+    }
+    const desc = heroCard.querySelector('.body-text');
+    if (desc && haircutService.description) {
+      desc.textContent = haircutService.description;
     }
 
-    const grid = section.querySelector('.services-catalog-grid');
-    if (!grid) return;
-    const items = categories[secId] || [];
-
-    if (!items.length) {
-      grid.innerHTML = '<p class="body-sm" style="grid-column: 1 / -1; color: var(--warm-ash); padding: 1rem 0;">No services currently listed in this category.</p>';
-      return;
+    // Optional Price display
+    const headerRow = heroCard.querySelector('.card-img-thumb + div') || heroCard.querySelector('div[style*="margin-bottom"]');
+    if (headerRow) {
+      let priceSpan = headerRow.querySelector('.hero-featured-price');
+      if (haircutService.price && haircutService.price.trim()) {
+        if (!priceSpan) {
+          priceSpan = document.createElement('span');
+          priceSpan.className = 'caption hero-featured-price';
+          priceSpan.style.cssText = 'color: var(--espresso); font-weight: 600; font-size: 1.15rem;';
+          headerRow.style.display = 'flex';
+          headerRow.style.alignItems = 'center';
+          headerRow.style.justifyContent = 'space-between';
+          headerRow.appendChild(priceSpan);
+        }
+        priceSpan.textContent = haircutService.price.trim();
+        priceSpan.style.display = '';
+      } else if (priceSpan) {
+        priceSpan.remove();
+        headerRow.style.display = '';
+      }
     }
 
-    grid.innerHTML = items.map(s => `
-      <div class="glass-card--light">
-        <div class="service-card-thumb">
-          <img src="${s.image || 'images/services/cut-ladies.jpg'}" alt="${s.name}" loading="lazy" onerror="this.src='images/services/cut-ladies.jpg'">
-        </div>
-        <div class="service-card-body">
-          <div class="service-card-header">
-            <h3 class="heading-card">${s.name}</h3>
-            <span class="price-val">${s.price || ''}</span>
-          </div>
-          <div style="margin-top: -0.25rem;">
-            ${s.originalPrice ? `<span class="price-original">${s.originalPrice}</span>` : ''}
-            ${s.savings ? `<span class="price-savings">${s.savings}</span>` : ''}
-            <span class="meta-duration" style="${!s.originalPrice && !s.savings ? 'margin-left: 0;' : ''}">${s.duration || ''}</span>
-          </div>
-          <p class="body-sm" style="margin-top: 0.5rem;">
-            ${s.description || ''}
-          </p>
-        </div>
-        <div class="service-card-footer">
-          <span class="caption">Tailored formulation</span>
-          <a href="${bookingUrl}" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
-        </div>
-      </div>
-    `).join('');
+    const bookBtn = heroCard.querySelector('a.btn-glass');
+    if (bookBtn) {
+      bookBtn.href = bUrl;
+    }
+  }
+
+  // 2. Stacked Companion Cards: Categories 02, 03, 04
+  const companionCats = [
+    { key: 'blowwave', defaultId: 'srv-11' },
+    { key: 'color', defaultId: 'srv-18' },
+    { key: 'foils', defaultId: 'srv-26' }
+  ];
+
+  companionCats.forEach(({ key, defaultId }) => {
+    const card = spread.querySelector(`.companion-card[data-featured-cat="${key}"]`);
+    if (!card) return;
+
+    const srv = services.find(s => s.category === key && s.featured) ||
+                services.find(s => s.category === key) ||
+                services.find(s => s.id === defaultId);
+    if (!srv) return;
+
+    const img = card.querySelector('.companion-img-thumb img');
+    if (img && srv.image) {
+      img.src = srv.image;
+      img.alt = srv.name || 'Featured Service';
+    }
+    const title = card.querySelector('.heading-card');
+    if (title && srv.name) {
+      title.textContent = srv.name;
+    }
+    const desc = card.querySelector('.companion-content p.caption');
+    if (desc && srv.description) {
+      desc.textContent = srv.description;
+    }
+
+    // Optional Price display
+    const actionWrap = card.querySelector('.companion-action');
+    if (actionWrap) {
+      let priceSpan = actionWrap.querySelector('.companion-price');
+      if (srv.price && srv.price.trim()) {
+        if (!priceSpan) {
+          priceSpan = document.createElement('span');
+          priceSpan.className = 'companion-price';
+          actionWrap.insertBefore(priceSpan, actionWrap.firstChild);
+        }
+        priceSpan.textContent = srv.price.trim();
+      } else if (priceSpan) {
+        priceSpan.remove();
+      }
+
+      const bookBtn = actionWrap.querySelector('.companion-book-btn');
+      if (bookBtn) {
+        bookBtn.href = bUrl;
+      }
+    }
   });
 }
 
+function hydrateServicesPage(services, bookingUrl = 'https://www.fresha.com/a/hairvalley-hurstville-shop-435-park-rd-hurstville-nsw-2220-vyp5k3fg/all-offer?menu=true&pId=2626895') {
+  const grid = document.getElementById('servicesGrid');
+  if (!grid) return;
+
+  const items = Array.isArray(services) ? services : [];
+  if (!items.length) {
+    grid.innerHTML = '<p class="body-sm" style="grid-column: 1 / -1; color: var(--warm-ash); padding: 1rem 0;">No services currently listed.</p>';
+    return;
+  }
+
+  grid.innerHTML = items.map(s => {
+    const hasPrice = Boolean(s.price && s.price.trim());
+    const hasOriginal = Boolean(s.originalPrice && s.originalPrice.trim());
+    const hasSavings = Boolean(s.savings && s.savings.trim());
+    const hasDuration = Boolean(s.duration && s.duration.trim());
+    const hasMetaRow = hasOriginal || hasSavings || hasDuration;
+
+    return `
+    <div class="glass-card--light">
+      <div class="service-card-thumb">
+        <img src="${s.image || 'images/services/cut-ladies.jpg'}" alt="${s.name}" loading="lazy" onerror="this.src='images/services/cut-ladies.jpg'">
+      </div>
+      <div class="service-card-body">
+        <div class="service-card-header">
+          <h3 class="heading-card">${s.name}</h3>
+          ${hasPrice ? `<span class="price-val">${s.price}</span>` : ''}
+        </div>
+        ${hasMetaRow ? `
+        <div style="margin-top: -0.25rem;">
+          ${hasOriginal ? `<span class="price-original">${s.originalPrice}</span>` : ''}
+          ${hasSavings ? `<span class="price-savings">${s.savings}</span>` : ''}
+          ${hasDuration ? `<span class="meta-duration" style="${!hasOriginal && !hasSavings ? 'margin-left: 0;' : ''}">${s.duration}</span>` : ''}
+        </div>
+        ` : ''}
+        <p class="body-sm" style="margin-top: 0.5rem;">
+          ${s.description || ''}
+        </p>
+      </div>
+      <div class="service-card-footer">
+        <span class="caption">Tailored formulation</span>
+        <a href="${bookingUrl}" target="_blank" rel="noopener noreferrer" class="caption" style="color: var(--dusty-rose); font-weight: 500;">Book Appointment →</a>
+      </div>
+    </div>
+  `;
+  }).join('');
+}
+
 /**
- * 8. Contact Form Submission Handler
+ * 7. Contact Form Submission Handler
  */
 function initContactForm() {
   const form = document.getElementById('contactInquiryForm');
